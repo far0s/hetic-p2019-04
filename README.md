@@ -13,8 +13,9 @@ gulp          // Run gulp and view the app at http://localhost:3000/
 
 ## Setup
 Once running, the app does the following:
-1. Mounts the `app` folder onto a local server
-2. Listens for changes inside the `src` directory, and compiles the necessary files into the `app` directory, which will then automaticaly livereload or inject changes. CSS changes are injected, all other changes force a page reload.
+* Mounts the `app` folder onto a local server.
+* Listens for changes inside the `src` directory, and compiles the necessary files into the `app` directory, which will then automaticaly livereload or inject changes.
+* CSS changes are injected, all other changes force a page reload.
 
 ## SCSS Setup
 * `mixins` holds all Sass/SCSS mixins, FastShell ships with a few helpers
