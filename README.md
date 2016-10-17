@@ -1,15 +1,36 @@
 # hetic-p2019-04
+[![Build Status](https://travis-ci.org/Far0s/hetic-p2019-04.svg?branch=master)](https://travis-ci.org/Far0s/hetic-p2019-04)
 HETIC Front-End Development Project
 
+## Install
+Clone or download the repo, with your method of choice. Then `cd` in it
+
+(you might need to use ```sudo``` for the next lines)
+```bash
+npm install   // Install all node dependencies
+
+gulp    // Run gulp and view the app at http://localhost:3000/
+```
+
+## Setup
+Once running, the app does the following:
+1. Mounts the `app` folder onto a local server
+2. Listens for changes inside the `src` directory, and compiles the necessary files into the `app` directory, which will then automaticaly livereload or inject changes. CSS changes are injected, all other changes force a page reload.
+
+## SCSS Setup
+* `mixins` holds all Sass/SCSS mixins, FastShell ships with a few helpers
+* `module` holds modules, more Object-Orientated components and a generic `app.scss` for everything else, all file names should be modular/OO.
+* `partials` holds the blueprints for the project, the header, footer, sidebar and so on.
+* `vendor` holds any files that are third party, such as the font awesome icons CSS
+* `style.scss` imports all the necessary files from the above folders, when adding new files be sure to add it inside this file.
+Gulp compiles all of that into a minified `style.min.css`
 
 
-# FastShell
-[![Build Status](https://travis-ci.org/HosseinKarami/fastshell.png?branch=master)](https://travis-ci.org/HosseinKarami/fastshell)
 
+## FastShell
 inspired by [FireShell](http://getfireshell.com)
-Fiercely quick front-end boilerplate and workflows.
 
-The opinionated FastShell framework. Built for the modern developer. For teams and the individual, encouraging a better workflow. JavaScript task running, build processes, autominification and file concatenation, wrapped with an enhanced HTML5 boilerplated framework.
+For more info:
 
 * Source: [github.com/HosseinKarami/fastshell](http://github.com/HosseinKarami/fastshell)
 * Documentation: [DOCS.md](https://github.com/HosseinKarami/fastshell/blob/master/DOCS.md)
