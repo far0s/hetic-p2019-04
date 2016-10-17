@@ -11,17 +11,17 @@ var gulp = require('gulp'),
     package = require('./package.json');
 
 
-// var banner = [
-//   '/*!\n' +
-//   ' * <%= package.name %>\n' +
-//   ' * <%= package.title %>\n' +
-//   ' * <%= package.url %>\n' +
-//   ' * @author <%= package.author %>\n' +
-//   ' * @version <%= package.version %>\n' +
-//   ' * Copyright ' + new Date().getFullYear() + '. <%= package.license %> licensed.\n' +
-//   ' */',
-//   '\n'
-// ].join('');
+var banner = [
+  '/*!\n' +
+  ' * <%= package.name %>\n' +
+  ' * <%= package.title %>\n' +
+  ' * <%= package.url %>\n' +
+  ' * @author <%= package.author %>\n' +
+  ' * @version <%= package.version %>\n' +
+  ' * Copyright ' + new Date().getFullYear() + '. <%= package.license %> licensed.\n' +
+  ' */',
+  '\n'
+].join('');
 
 gulp.task('css', function () {
     return gulp.src('src/scss/style.scss')
