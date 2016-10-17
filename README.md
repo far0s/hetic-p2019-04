@@ -1,5 +1,4 @@
-# hetic-p2019-04
-[![Build Status](https://travis-ci.org/Far0s/hetic-p2019-04.svg?branch=master)](https://travis-ci.org/Far0s/hetic-p2019-04)
+# hetic-p2019-04 [![Build Status](https://travis-ci.org/Far0s/hetic-p2019-04.svg?branch=master)](https://travis-ci.org/Far0s/hetic-p2019-04)
 HETIC Front-End Development Project
 
 ## Install
@@ -7,9 +6,9 @@ Clone or download the repo, with your method of choice. Then `cd` in it
 
 (you might need to use ```sudo``` for the next lines)
 ```bash
-npm install   // Install all node dependencies
+npm install   // Install all node dependencies (saved in node_modules/)
 
-gulp    // Run gulp and view the app at http://localhost:3000/
+gulp          // Run gulp and view the app at http://localhost:3000/
 ```
 
 ## Setup
