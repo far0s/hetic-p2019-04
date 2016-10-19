@@ -10,8 +10,9 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     package = require('./package.json');
 
+// All CSS tasks
 gulp.task('css', function () {
-    return gulp.src('src/scss/style.scss')
+  return gulp.src('src/scss/style.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer('last 4 version'))
@@ -23,6 +24,7 @@ gulp.task('css', function () {
     .pipe(browserSync.reload({stream:true}));
 });
 
+// All JS tasks
 gulp.task('js',function(){
   gulp.src('src/js/scripts.js')
     .pipe(sourcemaps.init())
@@ -36,19 +38,21 @@ gulp.task('js',function(){
     .pipe(browserSync.reload({stream:true, once: true}));
 });
 
+// BrowserSync tasks
 gulp.task('browser-sync', function() {
-    browserSync.init(null, {
-        server: {
-            baseDir: "app"
-        }
-    });
+  browserSync.init(null, {
+    server: {
+      baseDir: "app"
+    }
+  });
 });
 gulp.task('bs-reload', function () {
-    browserSync.reload();
+  browserSync.reload();
 });
 
+// Default task watcher
 gulp.task('default', ['css', 'js', 'browser-sync'], function () {
-    gulp.watch("src/scss/*/*.scss", ['css']);
-    gulp.watch("src/js/*.js", ['js']);
-    gulp.watch("app/*.html", ['bs-reload']);
+  gulp.watch("src/scss/*/*.scss", ['css']);
+  gulp.watch("src/js/*.js", ['js']);
+  gulp.watch("app/*.html", ['bs-reload']);
 });
