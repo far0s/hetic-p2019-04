@@ -58,7 +58,7 @@ gulp.task('default', ['css', 'js', 'browser-sync'], function () {
   gulp.watch("app/*.html", ['bs-reload']);
 
   var templateData = {
-    firstName: 'Kaanon'
+    title: 'Mission Rosetta',
   };
   var options = {
     ignorePartials: true, //ignores the unknown footer2 partial in the handlebars template, defaults to false
@@ -66,10 +66,6 @@ gulp.task('default', ['css', 'js', 'browser-sync'], function () {
       footer : '<footer>the end</footer>'
     },
       batch : ['src/partials'],
-      helpers : {
-        capitals : function(str){
-          return str.toUpperCase();
-      }
     }
   }
 

@@ -23,24 +23,16 @@ Once running, the app does the following:
 * `partials` holds the blueprints for the project, the header, footer, sidebar and so on.
 * `vendor` holds any files that are third party, such as the font awesome icons CSS
 * `style.scss` imports all the necessary files from the above folders, when adding new files be sure to add it inside this file.
-Gulp compiles all of that into a minified `style.min.css`
+Gulp compiles all of that into a minified `style.min.css`.
 
-
-
-## FastShell
-inspired by [FireShell](http://getfireshell.com)
-
-For more info:
-
-* Source: [github.com/HosseinKarami/fastshell](http://github.com/HosseinKarami/fastshell)
-* Documentation: [DOCS.md](https://github.com/HosseinKarami/fastshell/blob/master/DOCS.md)
-* HomePage: [Fastshell](https://HosseinKarami.github.io/fastshell)
-
+## Handlebars Setup
+* 'partials' holds all included files in the main template.
+* 'index.hbs' is the main template, and is compiled into 'app/index/html'.
 
 ## License
+inspired by [FastShell](http://github.com/HosseinKarami/fastshell)
 
 #### The MIT License (MIT)
-
 Copyright (c) FastShell
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
