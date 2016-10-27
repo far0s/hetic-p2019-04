@@ -1,9 +1,8 @@
 (function ($, window, document, undefined) {
-
   'use strict';
-
   $(function () {
-    // Scripts here
-  });
 
+    console.log('rosetta');
+
+  });
 })(jQuery, window, document);

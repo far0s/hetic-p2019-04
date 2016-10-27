@@ -26,8 +26,8 @@ Once running, the app does the following:
 Gulp compiles all of that into a minified `style.min.css`.
 
 ## Handlebars Setup
-* 'partials' holds all included files in the main template.
-* 'index.hbs' is the main template, and is compiled into 'app/index/html'.
+* `partials` holds all included files in the main template.
+* `index.hbs` is the main template, and is compiled into 'app/index/html'.
 
 ## License
 inspired by [FastShell](http://github.com/HosseinKarami/fastshell)
