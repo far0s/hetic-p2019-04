@@ -39,6 +39,25 @@ gulp.task('js',function(){
     .pipe(browserSync.reload({stream:true, once: true}));
 });
 
+// Handlebars task
+gulp.task('hbs', function(){
+  var templateData = {
+    title: 'Mission Rosetta'
+  };
+  var options = {
+    ignorePartials: true, //ignores the unknown footer2 partial in the handlebars template, defaults to false
+    partials : {
+      footer : '<footer>the end</footer>'
+    },
+    batch : ['src/partials'],
+  }
+
+  return gulp.src('src/index.hbs')
+    .pipe(handlebars(templateData, options))
+    .pipe(rename('index.html'))
+    .pipe(gulp.dest('app'));
+});
+
 // BrowserSync tasks
 gulp.task('browser-sync', function() {
   browserSync.init(null, {
@@ -55,27 +74,6 @@ gulp.task('bs-reload', function () {
 gulp.task('default', ['css', 'js', 'browser-sync'], function () {
   gulp.watch("src/scss/*/*.scss", ['css']);
   gulp.watch("src/js/*.js", ['js']);
+  gulp.watch("src/partials/*.hbs", ['hbs'])
   gulp.watch("app/*.html", ['bs-reload']);
-  gulp.watch("app/*.hbs", ['bs-reload']);
-
-  var templateData = {
-    title: 'Mission Rosetta'
-  };
-  var options = {
-    ignorePartials: true, //ignores the unknown footer2 partial in the handlebars template, defaults to false
-    partials : {
-      footer : '<footer>the end</footer>'
-    },
-      batch : ['src/partials'],
-      helpers : {
-        capitals : function(str){
-          return str.toUpperCase();
-      }
-    }
-  }
-
-  return gulp.src('src/index.hbs')
-    .pipe(handlebars(templateData, options))
-    .pipe(rename('index.html'))
-    .pipe(gulp.dest('app'));
 });
