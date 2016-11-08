@@ -1,1 +1,29 @@
-
+.app__header {
+  position: fixed;
+  top: 0;
+  height: 50px;
+  width: 100%;
+  z-index: 10;
+  background: #615C74;
+  .nav {
+    width: calc(100% - 20px);
+    height: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .nav__button {
+      flex: 1 1 20%;
+      color: #ffffff;
+      text-decoration: none;
+      &:last-of-type { text-align: end;}
+    }
+    h1 {
+      text-align: center;
+      flex: 1 1 60%;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 30px;
+    }
+  }
+}

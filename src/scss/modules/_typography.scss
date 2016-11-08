@@ -1,0 +1,18 @@
+// Typography
+
+body {
+  font-family: 'Avenir', Arial, sans-serif;
+  font-size: 20px;
+}
+
+.ft-avenir {
+  font-family: 'Avenir', Arial, sans-serif;
+}
+
+.ft-sfns {
+  font-family: 'SFNS', Arial, sans-serif;
+  &--bold {
+    font-family: 'SFNS', Arial, sans-serif;
+    font-weight: bold;
+  }
+}
