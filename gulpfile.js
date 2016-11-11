@@ -3,6 +3,7 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     autoprefixer = require('gulp-autoprefixer'),
     uglify = require('gulp-uglify'),
+    modernizr = require('gulp-modernizr'),
     jshint = require('gulp-jshint'),
     header  = require('gulp-header'),
     handlebars = require('gulp-compile-handlebars'),
@@ -32,6 +33,7 @@ gulp.task('js',function(){
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('default'))
     .pipe(gulp.dest('app/assets/js'))
+    // .pipe(modernizr())
     .pipe(uglify())
     .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write())
