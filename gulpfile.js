@@ -10,6 +10,7 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     cssnano = require('gulp-cssnano'),
     sourcemaps = require('gulp-sourcemaps'),
+    svgo = require('gulp-svgo'),
     package = require('./package.json');
 
 // All CSS tasks
@@ -60,6 +61,13 @@ gulp.task('hbs', function(){
     .pipe(gulp.dest('app'));
 });
 
+// Svgo task
+gulp.task('svgo', function(){
+  gulp.src('src/svg/*')
+    .pipe(svgo())
+    .pipe(gulp.dest('app/assets/img/'));
+});
+
 // BrowserSync tasks
 gulp.task('browser-sync', function() {
   browserSync.init(null, {
@@ -73,9 +81,10 @@ gulp.task('bs-reload', function () {
 });
 
 // Default task watcher
-gulp.task('default', ['css', 'js', 'browser-sync'], function () {
+gulp.task('default', ['css', 'js', 'hbs', 'svgo', 'browser-sync'], function () {
   gulp.watch("src/scss/*/*.scss", ['css']);
   gulp.watch("src/js/*.js", ['js']);
   gulp.watch("src/partials/*.hbs", ['hbs'])
+  gulp.watch("src/svg/*.svg", ['svgo']);
   gulp.watch("app/*.html", ['bs-reload']);
 });
