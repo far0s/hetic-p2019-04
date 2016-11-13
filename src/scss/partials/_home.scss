@@ -6,6 +6,8 @@
   background: #37314E;
   color: #ffffff;
   text-align: center;
+  @media screen and (min-width: 768px) {
+  }
 }
 
 .home__splash {
@@ -15,23 +17,24 @@
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
-  .headline {
-    margin-top: 0;
-    margin-bottom: auto;
-  }
   .headline h1 {
     font-size: 24px;
     text-transform: uppercase;
     font-weight: 300;
     margin-bottom: 0;
+    @media screen and (min-width: 768px) {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
   }
   .headline h2 {
     font-size: 14px;
     font-weight: 300;
-    margin: 0;
-  }
-  .mission {
-    margin-bottom: auto;
+    margin-top: 0;
+    margin-bottom: 60px;
+    @media screen and (min-width: 768px) {
+      font-size: 20px;
+    }
   }
   .mission img {
     width: 100px;
@@ -39,6 +42,10 @@
     background: #615C74;
     border-radius: 100%;
     overflow: hidden;
+    @media screen and (min-width: 768px) {
+      width: 115px;
+      height: 115px;
+    }
   }
   .mission p {
     margin: auto;
@@ -50,19 +57,17 @@
     align-items: center;
     font-size: 11px;
     font-weight: 300;
-    margin-top: -20px;
+    margin-top: -30px;
+    @media screen and (min-width: 768px) {
+      width: 365px;
+      height: 115px;
+      text-align: center;
+      font-size: 15px;
+    }
   }
 }
 
 
 .home__startbutton {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 56px;
-  background: #615C74;
-  border: 0;
-  outline: 0;
-  color: #ffffff;
+
 }

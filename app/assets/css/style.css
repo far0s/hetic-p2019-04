@@ -789,13 +789,14 @@ textarea {
     -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
             justify-content: space-between; }
-    .header__nav a {
+    .header__nav .nav-link {
       -webkit-flex: 1 1 15%;
           -ms-flex: 1 1 15%;
               flex: 1 1 15%;
       color: #ffffff;
-      text-decoration: none; }
-      .header__nav a:last-of-type {
+      text-decoration: none;
+      cursor: pointer; }
+      .header__nav .nav-link:last-of-type {
         text-align: end; }
     .header__nav h1 {
       text-align: center;
@@ -814,7 +815,14 @@ main {
 main > * {
   position: absolute;
   top: 0;
-  left: 0; }
+  left: 0;
+  transition: .3s ease-in-out .5s; }
+  main > *:target {
+    opacity: 1;
+    z-index: 1; }
+  main > *:not(:target) {
+    opacity: 0;
+    z-index: -1; }
 
 .home {
   top: 50px;
@@ -838,26 +846,33 @@ main > * {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center; }
-  .home__splash .headline  {
-    margin-top: 0;
-    margin-bottom: auto; }
   .home__splash .headline h1  {
     font-size: 24px;
     text-transform: uppercase;
     font-weight: 300;
     margin-bottom: 0; }
+    @media screen and (min-width: 768px) {
+      .home__splash .headline h1  {
+        font-size: 30px;
+        margin-bottom: 20px; } }
   .home__splash .headline h2 {
     font-size: 14px;
     font-weight: 300;
-    margin: 0; }
-  .home__splash .mission {
-    margin-bottom: auto; }
+    margin-top: 0;
+    margin-bottom: 60px; }
+    @media screen and (min-width: 768px) {
+      .home__splash .headline h2 {
+        font-size: 20px; } }
   .home__splash .mission img {
     width: 100px;
     height: 100px;
     background: #615C74;
     border-radius: 100%;
     overflow: hidden; }
+    @media screen and (min-width: 768px) {
+      .home__splash .mission img {
+        width: 115px;
+        height: 115px; } }
   .home__splash .mission p {
     margin: auto;
     width: 264px;
@@ -872,9 +887,15 @@ main > * {
             align-items: center;
     font-size: 11px;
     font-weight: 300;
-    margin-top: -20px; }
+    margin-top: -30px; }
+    @media screen and (min-width: 768px) {
+      .home__splash .mission p {
+        width: 365px;
+        height: 115px;
+        text-align: center;
+        font-size: 15px; } }
 
-.home__startbutton {
+.btn-next {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -883,7 +904,24 @@ main > * {
   background: #615C74;
   border: 0;
   outline: 0;
-  color: #ffffff; }
+  color: #ffffff;
+  cursor: pointer;
+  text-decoration: none;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .btn-next:hover {
+    text-decoration: underline; }
+  @media screen and (min-width: 768px) {
+    .btn-next {
+      height: 65px;
+      font-size: 20px; } }
 
 body {
   font-family: 'Avenir', Arial, sans-serif;

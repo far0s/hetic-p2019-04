@@ -1,0 +1,23 @@
+.btn-next {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 56px;
+  background: #615C74;
+  border: 0;
+  outline: 0;
+  color: #ffffff;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    text-decoration: underline;
+  }
+  @media screen and (min-width: 768px) {
+    height: 65px;
+    font-size: 20px;
+  }
+}

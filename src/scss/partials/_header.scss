@@ -12,10 +12,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    a {
+    .nav-link {
       flex: 1 1 15%;
       color: #ffffff;
       text-decoration: none;
+      cursor: pointer;
       &:last-of-type { text-align: end;}
     }
     h1 {
