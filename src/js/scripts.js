@@ -8,5 +8,11 @@
     // At start, go straight to #home page
     location.href='#home';
 
+
+    // Burger menu interaction, inpired by http://codepen.io/pwsm50/pen/KHDEI
+    $('.menu-collapsed').click(function() {
+      $(this).toggleClass('menu-expanded');
+    });
+
   });
 })(jQuery, window, document);

@@ -8,6 +8,9 @@ main > * {
   position: absolute;
   top: 0;
   left: 0;
+  top: 50px;
+  width: 100%;
+  height: calc(100vh - 50px);
   transition: .3s ease-in-out .5s;
   &:target {
     opacity: 1;

@@ -10,10 +10,11 @@
     height: 100%;
     margin: auto;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    position: relative;
     .nav-link {
-      flex: 1 1 15%;
       color: #ffffff;
       text-decoration: none;
       cursor: pointer;
@@ -25,6 +26,94 @@
       color: #ffffff;
       text-decoration: none;
       font-size: 30px;
+    }
+  }
+}
+
+
+// Burger menu interaction - inspired from http://codepen.io/pwsm50/pen/KHDEI
+.b-a {
+  transition: all .25s;
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 6px;
+  width: 30px;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+nav {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.menu-collapsed {
+  transition: all .25s;
+  position: fixed;
+  top: 10px;
+  left: 9px;
+  height: 36px;
+  width: 36px;
+  z-index: 1;
+  cursor: pointer;
+  nav {
+    transition: all 0s;
+    position: fixed;
+    left: -9000px;
+  }
+}
+.bar {
+  @extend .b-a;
+  position: fixed;
+  left: 12px;
+  top: 24px;
+  &:before {
+    @extend .b-a;
+    top: -8px;
+  }
+  &:after {
+    @extend .b-a;
+    top: 8px;
+  }
+}
+.b-a-expanded {
+  transition: all .25s;
+  top: -0px;
+}
+.menu-expanded {
+  transition: all .25s;
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+  border-radius: 0px;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  nav {
+    transition: all 0s;
+    position: relative;
+    left: 0;
+    z-index: 2;
+    padding-top: 30px;
+  }
+  a {
+    transition: all .15s;
+    text-decoration: none;
+    font-size: 1.5em;
+    color: #fff;
+    margin-bottom: 25px;
+  }
+  .bar {
+    background-color: transparent;
+    transition: all .25s;
+    &:before {
+      @extend .b-a-expanded;
+      transform: rotate(45deg);
+    }
+    &:after {
+      @extend .b-a-expanded;
+      transform: rotate(-45deg);
     }
   }
 }
