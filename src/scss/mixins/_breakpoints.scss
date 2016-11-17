@@ -1,0 +1,20 @@
+// Breakpoint
+$desktop : '70em';
+$laptop : '64m';
+$tablet : '50em';
+$mobileonly : '37.5em';
+
+@mixin media($point) {
+  @if $point == $desktop {
+    @media ($desktop) { @content ; }
+  }
+  @else if $point == $laptop {
+    @media ($laptop) { @content ; }
+  }
+  @else if $point == $tablet {
+    @media ($tablet) { @content ; }
+  }
+  @else if $point == $mobileonly {
+    @media ($mobileonly)  { @content ; }
+  }
+}

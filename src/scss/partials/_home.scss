@@ -2,9 +2,10 @@
   background: #37314E;
   color: #ffffff;
   text-align: center;
-  @media screen and (min-width: 768px) {
-    
-  }
+  // @extend media($tablet) {
+  //   background: red;
+  //   display: flex;
+  // }
 }
 
 .home__splash {
