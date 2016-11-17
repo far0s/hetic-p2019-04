@@ -13,17 +13,18 @@ var gulp = require('gulp'),
     svgo = require('gulp-svgo'),
     package = require('./package.json');
 
+
 // All CSS tasks
 gulp.task('css', function () {
   return gulp.src('src/scss/style.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer('last 4 version'))
-    .pipe(gulp.dest('app/assets/css'))
+    // .pipe(gulp.dest('dist/assets/css'))
     .pipe(cssnano())
     .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('app/assets/css'))
+    .pipe(gulp.dest('dist/assets/css'))
     .pipe(browserSync.reload({stream:true}));
 });
 
@@ -33,12 +34,11 @@ gulp.task('js',function(){
     .pipe(sourcemaps.init())
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('default'))
-    .pipe(gulp.dest('app/assets/js'))
-    // .pipe(modernizr())
+    .pipe(modernizr())
     .pipe(uglify())
     .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('app/assets/js'))
+    .pipe(gulp.dest('dist/assets/js'))
     .pipe(browserSync.reload({stream:true, once: true}));
 });
 
@@ -58,21 +58,34 @@ gulp.task('hbs', function(){
   return gulp.src('src/index.hbs')
     .pipe(handlebars(templateData, options))
     .pipe(rename('index.html'))
-    .pipe(gulp.dest('app'));
+    .pipe(gulp.dest('dist'))
+    .pipe(browserSync.reload({stream:true}));
 });
+
+// Media tasks
+gulp.task('media', function(){
+  gulp.src('src/fonts/*')
+    .pipe(gulp.dest('dist/assets/fonts/'))
+    .pipe(browserSync.reload({stream:true}));
+
+  gulp.src('src/img/*')
+    .pipe(gulp.dest('dist/assets/img/'))
+    .pipe(browserSync.reload({stream:true}));
+})
 
 // Svgo task
 gulp.task('svgo', function(){
   gulp.src('src/svg/*')
     .pipe(svgo())
-    .pipe(gulp.dest('app/assets/img/'));
+    .pipe(gulp.dest('dist/assets/img/'))
+    .pipe(browserSync.reload({stream:true}));
 });
 
 // BrowserSync tasks
 gulp.task('browser-sync', function() {
   browserSync.init(null, {
     server: {
-      baseDir: "app"
+      baseDir: "dist"
     }
   });
 });
@@ -81,10 +94,10 @@ gulp.task('bs-reload', function () {
 });
 
 // Default task watcher
-gulp.task('default', ['css', 'js', 'hbs', 'svgo', 'browser-sync'], function () {
+gulp.task('default', ['css', 'js', 'hbs', 'media', 'svgo', 'browser-sync'], function () {
   gulp.watch("src/scss/*/*.scss", ['css']);
   gulp.watch("src/js/*.js", ['js']);
   gulp.watch("src/**/*.hbs", ['hbs'])
   gulp.watch("src/svg/*.svg", ['svgo']);
-  gulp.watch("app/*.html", ['bs-reload']);
+  gulp.watch("dist/*.html", ['bs-reload']);
 });
