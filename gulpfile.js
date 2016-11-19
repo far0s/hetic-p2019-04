@@ -65,17 +65,17 @@ gulp.task('hbs', function(){
 
 // Media tasks
 gulp.task('media', function(){
-  gulp.src('src/fonts/*')
-    .pipe(gulp.dest('dist/assets/fonts/'))
-    .pipe(browserSync.reload({stream:true}));
+  // gulp.src('src/fonts/*')
+  //   .pipe(gulp.dest('dist/assets/fonts/'))
+  //   .pipe(browserSync.reload({stream:true}));
 
   gulp.src('src/img/*')
     .pipe(gulp.dest('dist/assets/img/'))
     .pipe(browserSync.reload({stream:true}));
 
-  gulp.src('src/favicon/*')
-    .pipe(gulp.dest('dist/assets/favicon/'))
-    .pipe(browserSync.reload({stream:true}));
+  // gulp.src('src/favicon/*')
+  //   .pipe(gulp.dest('dist/assets/favicon/'))
+  //   .pipe(browserSync.reload({stream:true}));
 })
 
 // Svgo task

@@ -1,11 +1,27 @@
 .home {
-  background: #37314E;
   color: #ffffff;
   text-align: center;
-  // @extend media($tablet) {
-  //   background: red;
-  //   display: flex;
-  // }
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    z-index: -1;
+    background: #37314E;
+    background-image: url('../../assets/img/bg--mobile.jpg');
+    animation: bgrotate 240s;
+    @media screen and (min-width: 768px) {
+      background-image: url('../../assets/img/bg.jpg');
+    }
+  }
+}
+
+@keyframes bgrotate {
+  0%   { transform: rotate(0); }
+  100% { transform: rotate(360deg); }
 }
 
 .home__splash {
@@ -34,12 +50,16 @@
       font-size: 20px;
     }
   }
-  .mission img {
+  .mission--img {
     width: 100px;
     height: 100px;
     background: #615C74;
     border-radius: 100%;
     overflow: hidden;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     @media screen and (min-width: 768px) {
       width: 115px;
       height: 115px;
