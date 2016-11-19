@@ -72,6 +72,10 @@ gulp.task('media', function(){
   gulp.src('src/img/*')
     .pipe(gulp.dest('dist/assets/img/'))
     .pipe(browserSync.reload({stream:true}));
+
+  gulp.src('src/favicon/*')
+    .pipe(gulp.dest('dist/assets/favicon/'))
+    .pipe(browserSync.reload({stream:true}));
 })
 
 // Svgo task
@@ -96,6 +100,7 @@ gulp.task('bs-reload', function () {
 
 // Default task watcher
 gulp.task('default', ['css', 'js', 'hbs', 'media', 'svgo', 'browser-sync'], function () {
+  gulp.watch(["src/fonts/*", "src/img/*", "src/favicon/*"], ['media']);
   gulp.watch("src/scss/*/*.scss", ['css']);
   gulp.watch("src/js/*.js", ['js']);
   gulp.watch("src/**/*.hbs", ['hbs'])
