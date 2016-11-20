@@ -1,0 +1,55 @@
+.chapter {
+  background: #ffffff;
+  .chapter__title {
+    color: #489BB6;
+    font-size: 50px;
+    margin: 20px 30px;
+  }
+}
+
+#ch1 {
+  background: #C7F1FF;
+  .dialog {
+    margin: auto;
+    width: 300px;
+    height: 140px;
+    padding: 26px 22px;
+    background: url('../../assets/img/dialogbg.svg') center no-repeat;
+    background-size: contain;
+    box-sizing: border-box;
+    text-align: center;
+    p {
+      width: 250px;
+      height: 60px;
+      overflow-y: scroll;
+      font-size: 12px;
+    }
+  }
+  .chapter__illu {
+    position: relative;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    img {
+      // position: absolute;
+      // top: 0;
+      // left: 0;
+    }
+    .approbation {
+      position: absolute;
+      top: 120px;
+      width: 225px;
+      height: 115px;
+      font-size: 18px;
+      text-align: center;
+      padding-top: 50px;
+      background: url('../../assets/img/dialogbg--round.svg') center no-repeat;
+    }
+  }
+  .btn-next {
+    display: none;
+  }
+}

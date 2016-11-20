@@ -13,11 +13,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: .3s ease-out .5s;
   &:hover {
     text-decoration: underline;
   }
   @media screen and (min-width: 768px) {
     height: 65px;
     font-size: 20px;
+  }
+}
+
+[data-color='lightblue'] {
+  .btn-next {
+    background: #489BB6;
   }
 }

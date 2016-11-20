@@ -1,16 +1,16 @@
 var gulp = require('gulp'),
-    sass = require('gulp-sass'),
-    browserSync = require('browser-sync'),
     autoprefixer = require('gulp-autoprefixer'),
-    uglify = require('gulp-uglify'),
-    modernizr = require('gulp-modernizr'),
-    jshint = require('gulp-jshint'),
-    header  = require('gulp-header'),
     handlebars = require('gulp-compile-handlebars'),
-    rename = require('gulp-rename'),
     cssnano = require('gulp-cssnano'),
+    header = require('gulp-header'),
+    jshint = require('gulp-jshint'),
+    modernizr = require('gulp-modernizr'),
+    rename = require('gulp-rename'),
+    sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
     svgo = require('gulp-svgo'),
+    uglify = require('gulp-uglify'),
+    browserSync = require('browser-sync'),
     package = require('./package.json');
 
 
@@ -20,7 +20,6 @@ gulp.task('css', function () {
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer('last 4 version'))
-    // .pipe(gulp.dest('dist/assets/css'))
     .pipe(cssnano())
     .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write())
@@ -30,7 +29,7 @@ gulp.task('css', function () {
 
 // All JS tasks
 gulp.task('js',function(){
-  gulp.src('src/js/scripts.js')
+  gulp.src('src/js/*.js')
     .pipe(sourcemaps.init())
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('default'))
@@ -65,17 +64,17 @@ gulp.task('hbs', function(){
 
 // Media tasks
 gulp.task('media', function(){
-  // gulp.src('src/fonts/*')
-  //   .pipe(gulp.dest('dist/assets/fonts/'))
-  //   .pipe(browserSync.reload({stream:true}));
+  gulp.src('src/fonts/*')
+    .pipe(gulp.dest('dist/assets/fonts/'))
+    .pipe(browserSync.reload({stream:true}));
 
   gulp.src('src/img/*')
     .pipe(gulp.dest('dist/assets/img/'))
     .pipe(browserSync.reload({stream:true}));
 
-  // gulp.src('src/favicon/*')
-  //   .pipe(gulp.dest('dist/assets/favicon/'))
-  //   .pipe(browserSync.reload({stream:true}));
+  gulp.src('src/favicon/*')
+    .pipe(gulp.dest('dist/assets/favicon/'))
+    .pipe(browserSync.reload({stream:true}));
 })
 
 // Svgo task

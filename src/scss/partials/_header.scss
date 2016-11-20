@@ -5,6 +5,7 @@
   width: 100vw;
   z-index: 10;
   background: #615C74;
+  transition: .3s ease-out .5s;
   &__nav {
     width: calc(100% - 20px);
     height: 100%;
@@ -26,7 +27,14 @@
       color: #ffffff;
       text-decoration: none;
       font-size: 30px;
+      font-weight: 300;
     }
+  }
+}
+
+[data-color='lightblue'] {
+  .header {
+    background: #489BB6;
   }
 }
 
@@ -37,10 +45,14 @@
   content: "";
   position: absolute;
   left: 0;
-  height: 6px;
-  width: 30px;
-  border-radius: 15px;
+  height: 3px;
+  width: 22px;
+  border-radius: 3px;
   background-color: rgba(255, 255, 255, 0.95);
+  @include media($tablet) {
+    height: 6px;
+    width: 40px;
+  }
 }
 nav {
   height: 100vh;
@@ -71,10 +83,16 @@ nav {
   &:before {
     @extend .b-a;
     top: -8px;
+    @include media($tablet) {
+      top: -12px;
+    }
   }
   &:after {
     @extend .b-a;
     top: 8px;
+    @include media($tablet) {
+      top: 12px;
+    }
   }
 }
 .b-a-expanded {

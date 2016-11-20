@@ -4,7 +4,7 @@ main {
   overflow: hidden;
 }
 
-main > * {
+main > section {
   position: absolute;
   top: 0;
   left: 0;
@@ -12,6 +12,8 @@ main > * {
   width: 100%;
   height: calc(100vh - 50px);
   transition: .3s ease-in-out .5s;
+  overflow: hidden;
+  background: #ffffff;
   &:target {
     opacity: 1;
     z-index: 1;
