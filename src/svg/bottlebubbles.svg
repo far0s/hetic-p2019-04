@@ -1,0 +1,15 @@
+<svg id="bottlebubbles" xmlns="http://www.w3.org/2000/svg" width="120" height="64" viewBox="0 0 120 64">
+  <g fill="#F8E81C" fill-rule="evenodd">
+    <circle cx="53.5" cy="47.5" r="3.5"/>
+    <circle cx="53" cy="6" r="4" transform="matrix(-1 0 0 1 106 0)"/>
+    <circle cx="22.5" cy="6.5" r="6.5" transform="matrix(-1 0 0 1 45 0)"/>
+    <circle cx="3.5" cy="37.5" r="3.5" transform="matrix(-1 0 0 1 7 0)"/>
+    <circle cx="33.5" cy="27.5" r="3.5" transform="matrix(-1 0 0 1 67 0)"/>
+    <circle cx="67" cy="58" r="4" transform="matrix(1 0 0 -1 0 116)"/>
+    <circle cx="97.5" cy="57.5" r="6.5" transform="matrix(1 0 0 -1 0 115)"/>
+    <ellipse cx="116.5" cy="26.5" transform="matrix(1 0 0 -1 0 53)" rx="3.5" ry="3.5"/>
+    <ellipse cx="86.5" cy="36.5" transform="matrix(1 0 0 -1 0 73)" rx="3.5" ry="3.5"/>
+    <circle cx="34" cy="26" r="4"/>
+    <circle cx="64.5" cy="26.5" r="6.5"/>
+  </g>
+</svg>

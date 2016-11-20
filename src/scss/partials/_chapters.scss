@@ -7,7 +7,7 @@
   }
 }
 
-#ch1 {
+.ch1 {
   background: #C7F1FF;
   .dialog {
     margin: auto;
@@ -18,11 +18,15 @@
     background-size: contain;
     box-sizing: border-box;
     text-align: center;
-    p {
+    .typed--ch1 {
       width: 250px;
       height: 60px;
       overflow-y: scroll;
       font-size: 12px;
+    }
+    .dialog-ok {
+      margin-top: -10px;
+      cursor: pointer;
     }
   }
   .chapter__illu {
@@ -33,11 +37,6 @@
     justify-content: center;
     flex-direction: column;
     box-sizing: border-box;
-    img {
-      // position: absolute;
-      // top: 0;
-      // left: 0;
-    }
     .approbation {
       position: absolute;
       top: 120px;
@@ -51,5 +50,66 @@
   }
   .btn-next {
     display: none;
+  }
+  .ch1__screen2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .instruction {
+    background: #ffffff;
+    width: 210px;
+    height: 35px;
+    font-size: 18px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .bottle {
+    margin: auto;
+    position: relative;
+    width: 220px;
+    height: 264px;
+    &.bottle--is-shaking {
+      pointer-events: none;
+      animation: shake-slow 5s infinite ease-in-out;
+    }
+    &.bottle--is-popping {
+      img:last-of-type {
+        transform: translate3d(50px, -60px, 0);
+      }
+    }
+    img {
+      position: absolute;
+      &:first-of-type {
+        bottom: 0;
+      }
+      &:nth-of-type(2) {
+        right: -50px;
+        top: -30px;
+      }
+      &:last-of-type {
+        top: 4px;
+        right: 8px;
+        transform: translate3d(0,0,0);
+        transition: .2s cubic-bezier(0.55, 0.06, 0.68, 0.19) 1s;
+      }
+    }
+  }
+}
+
+.screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: .3s ease-out .5s;
+  &.screen--is-visible {
+    opacity: 1;
+    pointer-events: all;
   }
 }

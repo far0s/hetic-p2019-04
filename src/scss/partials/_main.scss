@@ -1,16 +1,15 @@
 main {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
 }
 
 main > section {
   position: absolute;
-  top: 0;
-  left: 0;
   top: 50px;
+  left: 0;
   width: 100%;
-  height: calc(100vh - 50px);
+  height: calc(100% - 50px);
   transition: .3s ease-in-out .5s;
   overflow: hidden;
   background: #ffffff;

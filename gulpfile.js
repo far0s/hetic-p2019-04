@@ -29,7 +29,7 @@ gulp.task('css', function () {
 
 // All JS tasks
 gulp.task('js',function(){
-  gulp.src('src/js/*.js')
+  gulp.src('src/js/scripts.js')
     .pipe(sourcemaps.init())
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('default'))
@@ -38,6 +38,10 @@ gulp.task('js',function(){
     .pipe(uglify())
     .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write())
+    .pipe(gulp.dest('dist/assets/js'))
+    .pipe(browserSync.reload({stream:true, once: true}));
+
+  gulp.src('src/js/lib/*.js')
     .pipe(gulp.dest('dist/assets/js'))
     .pipe(browserSync.reload({stream:true, once: true}));
 });
@@ -55,7 +59,7 @@ gulp.task('hbs', function(){
     batch : ['src/partials'],
   }
 
-  return gulp.src('src/index.hbs')
+  gulp.src('src/index.hbs')
     .pipe(handlebars(templateData, options))
     .pipe(rename('index.html'))
     .pipe(gulp.dest('dist'))
