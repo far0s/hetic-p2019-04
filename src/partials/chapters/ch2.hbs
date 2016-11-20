@@ -1,35 +1,69 @@
-<section id="ch2" class="chapter">
-  <h2 class="chapter__title">Décembre 2002</h2>
-  <div class="chapter__illu">
-    <div class="fusee">
-      <p>Répare la fusée!</p>
+<section id="ch2" class="chapter ch2">
+  <div class="ch2__screen1 screen screen--is-visible">
+    <h2 class="chapter__title">2002</h2>
+    <div class="chapter__illu">
+      <div class="sun"></div>
+      <div class="earth">
+        <svg width="596px" height="446px" viewBox="-138 486 596 446" xmlns="http://www.w3.org/2000/svg">
+          <ellipse id="Oval-2" stroke="none" fill="#EFE3C3" fill-rule="evenodd" cx="160" cy="709" rx="298" ry="223"></ellipse>
+        </svg>
+      </div>
+      <div class="rocket">
+        <img src="assets/img/rocket--mobile.png" alt="Fusée Ariane" />
+      </div>
+      <div class="man1">
+        <img src="assets/img/man1--mobile.png" alt="Scientifique" />
+      </div>
     </div>
+
+    {{!-- First screen describing the late reparations --}}
+    <div class="dialog">
+      <p class="typed--ch2">L'accident de la fusée Ariane retarde la mission d'un an.</p>
+      <button type="button" name="dialog-ok" class="dialog-ok">OK</button>
+    </div>
+    <div class="prompt ch2__prompt1">
+      <p>Aide le scientifique à réparer sa fusée !</p>
+    </div>
+    <button type="button" name="button" class="btn-next ch2__btn1">Je suis prêt !</button>
+
+    <div class="assemblage">
+      <div class="prompt ch2__prompt2">
+        <p>Assemble les pièces de la fusée</p>
+      </div>
+      <div class="assemblage__pieces">
+        <div id="yes-drop" class="draggable drag-drop piece1"><img src="" alt="" /></div>
+        <div id="yes-drop" class="draggable drag-drop piece2"><img src="" alt="" /></div>
+        <div id="yes-drop" class="draggable drag-drop piece3"><img src="" alt="" /></div>
+        <div id="yes-drop" class="draggable drag-drop piece4"><img src="" alt="" /></div>
+        <div id="yes-drop" class="draggable drag-drop piece5"><img src="" alt="" /></div>
+        <div id="yes-drop" class="draggable drag-drop piece6"><img src="" alt="" /></div>
+        <div id="yes-drop" class="draggable drag-drop piece7"><img src="" alt="" /></div>
+        <div id="yes-drop" class="draggable drag-drop piece8"><img src="" alt="" /></div>
+        <div id="yes-drop" class="draggable drag-drop piece9"><img src="" alt="" /></div>
+        <div id="yes-drop" class="draggable drag-drop piece10"><img src="" alt="" /></div>
+        <div id="yes-drop" class="draggable drag-drop piece11"><img src="" alt="" /></div>
+        <div id="yes-drop" class="draggable drag-drop piece12"><img src="" alt="" /></div>
+        <!-- Duplicate this line for each piece of the puzzle -->
+      </div>
+      <div class="assemblage__dropzone">
+        <img src="assets/img/rocketshadow--mobile.png" alt="Plan de la fusée" />
+      </div>
+    </div>
+
+    <button type="button" name="button" class="btn-next">Je suis prêt !</button>
   </div>
 
-  <div class="dialog">
-    <p class="typed--ch2">L'accident de la fusée Ariane retarde la mission d'un an.</p>
+  {{!-- Second screen describing the launch --}}
+  <div class="ch2__screen2 screen">
+    <h2 class="chapter__title">Mars 2004</h2>
+    <div class="chapter__illu">
+    </div>
+
+    <div class="dialog">
+      <p class="typed--ch2">La sonde Rosetta est lancée plus de dix ans après le début du projet, à bord d'une Ariane 5 lancée depuis Kourou, en Guyane Française.</p>
+    </div>
+
+    <a href="#ch3" class="btn-next nav-href" data-color-target="none">Chapitre suivant! (3/9)</a>
   </div>
 
-<div class="prompt">
-  <p>Assemble les pièces de la fusée!</p>
-</div>
-
-<div id="assemblage">
-  <div id="piece-1" class="draggable drag-drop"><img src="" alt="" /></div>
-  <!-- Duplicate this line for each piece of the puzzle -->
-
-  <div class="dropzone"></div>
-</div>
-
-  <button type="button" name="button" class="btn-next">Je suis prêt !</button>
-
-  <h2 class="chapter__title">Mars 2004</h2>
-  <div class="chapter__illu">
-  </div>
-
-  <div class="dialog">
-    <p class="typed--ch2">La sonde Rosetta est lancée plus de dix ans après le début du projet, à bord d'une Ariane 5 lancée depuis Kourou, en Guyane Française.</p>
-  </div>
-
-  <a href="#ch3" class="btn-next nav-href">Chapitre suivant! (3/9)</a>
 </section>

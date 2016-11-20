@@ -64,6 +64,23 @@
       });
     }
 
+    // Chapter 2 scenario
+    function ch2scenario(){
+      $('.ch2 .btn-next').hide();
+      $('.ch2__prompt1').hide();
+      $('.ch2__prompt2').hide();
+      $('.ch2 .assemblage').hide();
+
+      $('.ch2 .dialog-ok').click(function(){
+        $('.ch2 .dialog').hide('slow');
+        $('.ch2__prompt1').show('slow');
+        $('.ch2__btn1').show('slow');
+      });
+      $('.ch2__btn1').click(function(){
+        $('.ch2 .assemblage').show('slow');
+      });
+    }
+
     // Chapter 5 scenario
     function ch5scenario(){
       $('.ch5 .btn-next').hide();
@@ -81,7 +98,8 @@
       var dataColorTarget = $(this).attr('data-color-target');
       initChapter(href, dataColorTarget);
       if (href === '#ch1') {ch1scenario();}
-      // else if (href === '#ch5') {ch5Scenario();}
+      else if (href === '#ch2') {ch2scenario();}
+      else if (href === '#ch5') {ch5scenario();}
     });
 
 

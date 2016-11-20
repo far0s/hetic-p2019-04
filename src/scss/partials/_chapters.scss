@@ -121,7 +121,100 @@
 
 
 // Chapter 2
-
+.ch2 {
+  background: #C7F2FF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .chapter__title {
+    color: #489BB6;
+  }
+  .sun {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #FFEC8A;
+    width: 84px;
+    height: 84px;
+    border-radius: 100%;
+  }
+  .earth {
+    position: absolute;
+    bottom: -340px;
+    left: -110px;
+    z-index: 1;
+  }
+  .rocket {
+    position: absolute;
+    bottom: 70px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  .dialog {
+    width: 300px;
+    height: 140px;
+    padding: 26px 22px;
+    .typed--ch1 {
+      width: 250px;
+      height: 60px;
+      overflow-y: scroll;
+      font-size: 12px;
+    }
+    .dialog-ok {
+      margin-top: -10px;
+      cursor: pointer;
+    }
+  }
+  .ch2__prompt1 {
+    width: 176px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background: #ffffff;
+    font-size: 12px;
+    padding: 10px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 130px;
+    left: calc(50% - 88px);
+  }
+  .ch2__btn1 {
+    z-index: 2;
+  }
+  .man1 {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1;
+  }
+  .assemblage {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #C7F1FF;
+    z-index: 3;
+    .ch2__prompt2 {
+      position: absolute;
+      top: 20px;
+      left: calc(50% - 143px);
+      width: 287px;
+      height: 35px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: #ffffff;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+  }
+}
 
 
 // Chapter 3
@@ -136,7 +229,7 @@
 .ch5 {
   background: #000000;
   display: flex;
-	flex-direction: column;
+  flex-direction: column;
   .chapter__title {
     position: absolute;
   }
