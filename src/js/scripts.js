@@ -1,3 +1,9 @@
+// TODO:
+// - Optimize Typed.js
+// - Add Interact.js - http://interactjs.io/
+// - Add 'unlockable chapters' functionnality
+// - Add 'reset' function
+
 (function ($, window, document, undefined) {
   'use strict';
   $(function () {
@@ -16,25 +22,24 @@
 
     function initChapter($ch, $dataColor){
       $('main').attr('data-color', $dataColor);
-      var typed = 'typed--'+$ch;
-      $(typed).typed({
-        strings: $(typed),
-        typeSpeed: 0
-      });
     }
 
     // Chapter 1 scenario and event listeners
-    function ch1Scenario(){
-      $('ch1 .approbation').hide();
+    function ch1scenario(){
+      $('.ch1 .approbation').hide();
       $('.ch1__screen1 .btn-next').hide();
       $('.ch1__screen2 .bottle img:nth-of-type(2)').hide();
 
       // TODO: Typed dialog
+      $('.typed--ch1').typed({
+        strings: $('.typed--ch1'),
+        typeSpeed: 0
+      });
 
       // 'OK' button listener, triggers next bubble
-      $('ch1 .dialog-ok').click(function(){
-        $('ch1 .dialog').hide('slow');
-        $('ch1 .approbation').show('slow');
+      $('.ch1 .dialog-ok').click(function(){
+        $('.ch1 .dialog').hide('slow');
+        $('.ch1 .approbation').show('slow');
         $('.ch1__screen1 .btn-next').show('slow');
       });
       // 'Ready' button listener, starting mini-game
@@ -59,11 +64,15 @@
       });
     }
 
-    // TODO:
-    // - Optimize Typed.js
-    // - Add Interact.js - http://interactjs.io/
-    // - Add 'unlockable chapters' functionnality
-    // - Add 'reset' function
+    // Chapter 5 scenario
+    function ch5scenario(){
+      $('.ch5 .btn-next').hide();
+
+      // TODO: Typed dialog
+
+      // When typed has finished typing, display btn.next
+      $('.ch5 .btn-next').show('slow');
+    }
 
 
     // Init chapter state, each time the app changes Chapter
@@ -71,7 +80,8 @@
       var href = $(this).attr('href');
       var dataColorTarget = $(this).attr('data-color-target');
       initChapter(href, dataColorTarget);
-      if (href === '#ch1') {ch1Scenario();}
+      if (href === '#ch1') {ch1scenario();}
+      // else if (href === '#ch5') {ch5Scenario();}
     });
 
 
