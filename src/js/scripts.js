@@ -25,16 +25,16 @@
 
     // Chapter 1 scenario and event listeners
     function ch1Scenario(){
-      $('.approbation').hide();
+      $('ch1 .approbation').hide();
       $('.ch1__screen1 .btn-next').hide();
       $('.ch1__screen2 .bottle img:nth-of-type(2)').hide();
 
-      // Typed dialog
+      // TODO: Typed dialog
 
       // 'OK' button listener, triggers next bubble
-      $('.dialog-ok').click(function(){
-        $('.dialog').hide('slow');
-        $('.approbation').show('slow');
+      $('ch1 .dialog-ok').click(function(){
+        $('ch1 .dialog').hide('slow');
+        $('ch1 .approbation').show('slow');
         $('.ch1__screen1 .btn-next').show('slow');
       });
       // 'Ready' button listener, starting mini-game
