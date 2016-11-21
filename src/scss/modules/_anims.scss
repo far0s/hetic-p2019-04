@@ -150,3 +150,25 @@
     transform: translate(-6px, 8px) rotate(1.5deg);
   }
 }
+
+
+@keyframes launch-sun {
+  0%   {opacity: 1;}
+  100% {opacity: 0;}
+}
+@keyframes launch-earth {
+  0%   {transform: translate3d(0,0,0);}
+  100% {transform: translate3d(0, 200px, 0);}
+}
+@keyframes launch-rocket {
+  0%   {transform: translate3d(0,0,0);}
+  100% {transform: translate3d(0, -80px, 0);}
+}
+@keyframes launch-gradient {
+  0% {
+    top: -200%;
+  }
+  100% {
+    top: 0;
+  }
+}

@@ -183,7 +183,7 @@
   .ch2__btn1 {
     z-index: 2;
   }
-  .man1 {
+  .man1, .man2 {
     position: absolute;
     bottom: 20px;
     right: 20px;
@@ -244,6 +244,30 @@
         &.piece12 { bottom: 98px; left: 78px; }
       }
     }
+  }
+  .ch2__screen2 {
+    &:after {
+      z-index: -1;
+      position: absolute;
+      top: 200%;
+      content: '';
+      height: 300%;
+      width: 100%;
+      background: linear-gradient(#37314E 33.33%, #C7F2FF 66.66%);
+    }
+    .nav-href {
+      background: #615c74;
+    }
+  }
+  .ch2__screen2.is-launching {
+    &:after {animation: launch-gradient 5s forwards;}
+    .chapter__title {
+      color: #9A94B2;
+      transition: 5s ease;
+    }
+    .sun {animation: launch-sun 5s forwards;}
+    .earth, .man2 {animation: launch-earth 5s forwards;}
+    .rocket {animation: launch-rocket 3s ease-out forwards;}
   }
 }
 

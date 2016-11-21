@@ -77,15 +77,26 @@
       });
       $('.ch2__btn1').click(function(){
         $('.ch2 .assemblage').show('slow');
+        // TODO Add Drag&Drop puzzle mechanics
+
+        // When the rocket is complete
         $('.ch2__screen1 .ch2__btn2').show();
         $('.ch2__screen1 .ch2__btn2').css('z-index', '3');
       });
       $('.ch2__screen1 .ch2__btn2').click(function(){
         $('.ch2__screen1').removeClass('screen--is-visible');
         $('.ch2__screen2').addClass('screen--is-visible');
+        $('.ch2__screen2 .dialog').show('slow');
+        setTimeout(function(){
+          $('.ch2__screen2 .dialog').hide('slow');
+          $('.ch2__screen2').addClass('is-launching');
+          $('.header').addClass('is-launching');
+        }, 3000);
+        setTimeout(function(){
+          $('.ch2__screen2 .nav-href').show('slow');
+        }, 5000);
       });
 
-      // TODO Add Drag&Drop puzzle mechanics
 
     }
 
@@ -107,6 +118,7 @@
       initChapter(href, dataColorTarget);
       if (href === '#ch1') {ch1scenario();}
       else if (href === '#ch2') {ch2scenario();}
+
       else if (href === '#ch5') {ch5scenario();}
     });
 
