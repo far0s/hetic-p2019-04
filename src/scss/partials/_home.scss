@@ -1,0 +1,86 @@
+.home {
+  color: #ffffff;
+  text-align: center;
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    z-index: -1;
+    background: #37314E;
+    background-image: url('../../assets/img/bg--mobile.jpg');
+    animation: bgrotate 240s infinite;
+    @include media($tablet){
+      background-image: url('../../assets/img/bg.jpg');
+    }
+  }
+}
+
+@keyframes bgrotate {
+  0%   { transform: rotate(0); }
+  100% { transform: rotate(360deg); }
+}
+
+.home__splash {
+  padding: 15px 0;
+  box-sizing: border-box;
+  height: calc(100vh - 106px);
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  .headline h1 {
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-bottom: 0;
+    @include media($tablet) {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+  }
+  .headline h2 {
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: 60px;
+    @include media($tablet) {
+      font-size: 20px;
+    }
+  }
+  .mission--img {
+    width: 100px;
+    height: 100px;
+    background: #615C74;
+    border-radius: 100%;
+    overflow: hidden;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include media($tablet) {
+      width: 115px;
+      height: 115px;
+    }
+  }
+  .mission p {
+    margin: auto;
+    width: 264px;
+    height: 83px;
+    background: #615C74;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 300;
+    margin-top: -30px;
+    @include media($tablet) {
+      width: 365px;
+      height: 115px;
+      text-align: center;
+      font-size: 15px;
+    }
+  }
+}

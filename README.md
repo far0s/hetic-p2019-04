@@ -13,15 +13,14 @@ gulp          // Run gulp and view the app at http://localhost:3000/
 
 ## Setup
 Once running, the app does the following:
-* Mounts the `app` folder onto a local server.
-* Listens for changes inside the `src` directory, and compiles the necessary files into the `app` directory, which will then automaticaly livereload or inject changes.
+* Mounts the `dist` folder onto a local server.
+* Listens for changes inside the `src` directory, and compiles the necessary files into the `dist` directory, which will then automaticaly livereload or inject changes.
 * CSS changes are injected, all other changes force a page reload.
 
 ## SCSS Setup
-* `mixins` holds all Sass/SCSS mixins, FastShell ships with a few helpers
-* `module` holds modules, more Object-Orientated components and a generic `app.scss` for everything else, all file names should be modular/OO.
+* `mixins` holds all Sass/SCSS mixins
+* `modules` holds modules
 * `partials` holds the blueprints for the project, the header, footer, sidebar and so on.
-* `vendor` holds any files that are third party, such as the font awesome icons CSS
 * `style.scss` imports all the necessary files from the above folders, when adding new files be sure to add it inside this file.
 Gulp compiles all of that into a minified `style.min.css`.
 

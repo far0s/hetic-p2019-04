@@ -1,12 +1,13 @@
 //----------------------------------*\
 // SCSS MIXINS
 //----------------------------------*/
-// @import 'mixins/_mixinName.scss';
+@import 'mixins/_breakpoints.scss';
 
 //----------------------------------*\
 // CONFIG MODULES
 //----------------------------------*/
 // Config modules
+@import 'modules/_reset.scss';
 @import 'modules/_vars.scss';
 @import 'modules/_normalize.scss';
 
@@ -16,12 +17,16 @@
 @import 'partials/_header.scss';
 @import 'partials/_main.scss';
 @import 'partials/_footer.scss';
+@import 'partials/_home.scss';
+@import 'partials/_chapters.scss';
 
 //----------------------------------*\
 // OBJECTS & MODULES
 //----------------------------------*/
 @import 'modules/_buttons.scss';
+@import 'modules/_anims.scss';
 @import 'modules/_typography.scss';
+@import 'modules/_typedcursor.scss';
 
 // Enhancement modules
 @import 'modules/_print.scss';

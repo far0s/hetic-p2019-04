@@ -3,35 +3,39 @@
 <head>
   <meta charset="utf-8">
   <title>Mission Rosetta</title>
-
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
 
-  <link href="//www.google-analytics.com" rel="dns-prefetch">
-  <link href="//ajax.googleapis.com" rel="dns-prefetch">
   <link href="assets/css/style.min.css" rel="stylesheet">
 
-  <script async src="assets/components/modernizr/modernizr.js"></script>
-  <script async src="assets/components/jquery/jquery.min.js"></script>
-  <script async src="assets/js/scripts.min.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  <script async src="assets/js/typed.js"></script>
+  <script async src="assets/js/interact.min.js"></script>
+  <script async src="assets/js/scripts.js"></script>
 </head>
 <body>
+  <main data-color='none'>
+    {{> header }}
 
-  {{> header }}
+    {{>home }}
+    {{!-- {{>help }} --}}
+    {{>chapters/ch1 }}
+    {{>chapters/ch2 }}
+    {{>chapters/ch3 }}
+    {{>chapters/ch4 }}
+    {{>chapters/ch5 }}
+    {{>chapters/ch6 }}
+    {{>chapters/ch7 }}
+    {{>chapters/ch8 }}
+    {{>chapters/ch9 }}
 
-  {{> main }}
-
-  {{> footer }}
-
-  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-  <!-- <script>
-  (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-    e.src='//www.google-analytics.com/analytics.js';
-    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-    ga('create','UA-XXXXX-X');ga('send','pageview');
-  </script> -->
+    {{> footer }}
+  </main>
 </body>
 </html>

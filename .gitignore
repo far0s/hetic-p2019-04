@@ -17,6 +17,7 @@ logs
 results
 npm-debug.log
 node_modules
+dist
 
 ## Bower
 src/components

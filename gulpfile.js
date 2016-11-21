@@ -1,64 +1,55 @@
 var gulp = require('gulp'),
-sass = require('gulp-sass'),
-browserSync = require('browser-sync'),
-autoprefixer = require('gulp-autoprefixer'),
-uglify = require('gulp-uglify'),
-jshint = require('gulp-jshint'),
-header  = require('gulp-header'),
-handlebars = require('gulp-compile-handlebars'),
-rename = require('gulp-rename'),
-cssnano = require('gulp-cssnano'),
-sourcemaps = require('gulp-sourcemaps'),
-package = require('./package.json');
+    autoprefixer = require('gulp-autoprefixer'),
+    handlebars = require('gulp-compile-handlebars'),
+    cssnano = require('gulp-cssnano'),
+    header = require('gulp-header'),
+    jshint = require('gulp-jshint'),
+    modernizr = require('gulp-modernizr'),
+    rename = require('gulp-rename'),
+    sass = require('gulp-sass'),
+    sourcemaps = require('gulp-sourcemaps'),
+    svgo = require('gulp-svgo'),
+    uglify = require('gulp-uglify'),
+    browserSync = require('browser-sync'),
+    package = require('./package.json');
+
 
 // All CSS tasks
 gulp.task('css', function () {
   return gulp.src('src/scss/style.scss')
-  .pipe(sourcemaps.init())
-  .pipe(sass().on('error', sass.logError))
-  .pipe(autoprefixer('last 4 version'))
-  .pipe(gulp.dest('app/assets/css'))
-  .pipe(cssnano())
-  .pipe(rename({ suffix: '.min' }))
-  .pipe(sourcemaps.write())
-  .pipe(gulp.dest('app/assets/css'))
-  .pipe(browserSync.reload({stream:true}));
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer('last 4 version'))
+    .pipe(cssnano())
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('dist/assets/css'))
+    .pipe(browserSync.reload({stream:true}));
 });
 
 // All JS tasks
 gulp.task('js',function(){
   gulp.src('src/js/scripts.js')
-  .pipe(sourcemaps.init())
-  .pipe(jshint('.jshintrc'))
-  .pipe(jshint.reporter('default'))
-  .pipe(gulp.dest('app/assets/js'))
-  .pipe(uglify())
-  .pipe(rename({ suffix: '.min' }))
-  .pipe(sourcemaps.write())
-  .pipe(gulp.dest('app/assets/js'))
-  .pipe(browserSync.reload({stream:true, once: true}));
+    .pipe(sourcemaps.init())
+    .pipe(jshint('.jshintrc'))
+    .pipe(jshint.reporter('default'))
+    .pipe(gulp.dest('dist/assets/js'))
+    .pipe(modernizr())
+    .pipe(uglify())
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('dist/assets/js'))
+    .pipe(browserSync.reload({stream:true, once: true}));
+
+  gulp.src('src/js/lib/*.js')
+    .pipe(gulp.dest('dist/assets/js'))
+    .pipe(browserSync.reload({stream:true, once: true}));
 });
 
-// BrowserSync tasks
-gulp.task('browser-sync', function() {
-  browserSync.init(null, {
-    server: {
-      baseDir: "app"
-    }
-  });
-});
-gulp.task('bs-reload', function () {
-  browserSync.reload();
-});
-
-// Default task watcher
-gulp.task('default', ['css', 'js', 'browser-sync'], function () {
-  gulp.watch("src/scss/*/*.scss", ['css']);
-  gulp.watch("src/js/*.js", ['js']);
-  gulp.watch("app/*.html", ['bs-reload']);
-
+// Handlebars task
+gulp.task('hbs', function(){
   var templateData = {
-    title: 'Mission Rosetta',
+    title: 'Mission Rosetta'
   };
   var options = {
     ignorePartials: true, //ignores the unknown footer2 partial in the handlebars template, defaults to false
@@ -68,8 +59,54 @@ gulp.task('default', ['css', 'js', 'browser-sync'], function () {
     batch : ['src/partials'],
   }
 
-  return gulp.src('src/index.hbs')
+  gulp.src('src/index.hbs')
     .pipe(handlebars(templateData, options))
     .pipe(rename('index.html'))
-    .pipe(gulp.dest('app'));
+    .pipe(gulp.dest('dist'))
+    .pipe(browserSync.reload({stream:true}));
+});
+
+// Media tasks
+gulp.task('media', function(){
+  gulp.src('src/fonts/*')
+    .pipe(gulp.dest('dist/assets/fonts/'))
+    .pipe(browserSync.reload({stream:true}));
+
+  gulp.src('src/img/*')
+    .pipe(gulp.dest('dist/assets/img/'))
+    .pipe(browserSync.reload({stream:true}));
+
+  gulp.src('src/favicon/*')
+    .pipe(gulp.dest('dist/assets/favicon/'))
+    .pipe(browserSync.reload({stream:true}));
+})
+
+// Svgo task
+gulp.task('svgo', function(){
+  gulp.src('src/svg/*')
+    .pipe(svgo())
+    .pipe(gulp.dest('dist/assets/img/'))
+    .pipe(browserSync.reload({stream:true}));
+});
+
+// BrowserSync tasks
+gulp.task('browser-sync', function() {
+  browserSync.init(null, {
+    server: {
+      baseDir: "dist"
+    }
+  });
+});
+gulp.task('bs-reload', function () {
+  browserSync.reload();
+});
+
+// Default task watcher
+gulp.task('default', ['css', 'js', 'hbs', 'media', 'svgo', 'browser-sync'], function () {
+  gulp.watch(["src/fonts/*", "src/img/*", "src/favicon/*"], ['media']);
+  gulp.watch("src/scss/*/*.scss", ['css']);
+  gulp.watch("src/js/*.js", ['js']);
+  gulp.watch("src/**/*.hbs", ['hbs'])
+  gulp.watch("src/svg/*.svg", ['svgo']);
+  gulp.watch("dist/*.html", ['bs-reload']);
 });
