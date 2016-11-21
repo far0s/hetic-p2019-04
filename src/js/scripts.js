@@ -100,6 +100,31 @@
 
     // Chapter 3 scenario
     function ch3scenario(){
+      $('.ch3__btn1').hide();
+      $('.ch3__screen2 .nav-href').hide();
+
+      $('.ch3 .ch3__screen1 .dialog-ok').click(function(){
+        $('.ch3__btn1').show('slow');
+      });
+      $('.ch3__btn1').click(function(){
+        $('.ch3__screen1').removeClass('screen--is-visible');
+        $('.ch3__screen2').addClass('screen--is-visible');
+      });
+
+      // Tap interaction on Rosetta
+      var taps=3; // starting scale of the '.inner-circle'
+      $('.rosetta').click(function(){
+        if (taps < 9) {
+          taps++;
+          var scale = 'scale3d(.'+taps+', .'+taps+', 1)';
+          $('.rosetta .inner-circle').css('transform', scale);
+        } else {
+          taps++;
+          $('.rosetta .inner-circle').css('transform', 'scale3d(1,1,1)');
+          $('.ch3__screen2 .prompt > p').text('Bravo, tu as redémarré le réacteur !');
+          $('.ch3__screen2 .nav-href').show('slow');
+        }
+      });
 
     }
 
