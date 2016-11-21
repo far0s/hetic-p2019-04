@@ -96,7 +96,15 @@
           $('.ch2__screen2 .nav-href').show('slow');
         }, 5000);
       });
+    }
 
+    // Chapter 3 scenario
+    function ch3scenario(){
+
+    }
+
+    // Chapter 4 scenario
+    function ch4scenario(){
 
     }
 
@@ -118,7 +126,8 @@
       initChapter(href, dataColorTarget);
       if (href === '#ch1') {ch1scenario();}
       else if (href === '#ch2') {ch2scenario();}
-
+      else if (href === '#ch3') {ch3scenario();}
+      else if (href === '#ch4') {ch4scenario();}
       else if (href === '#ch5') {ch5scenario();}
     });
 

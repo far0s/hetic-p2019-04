@@ -37,7 +37,11 @@
     background: #489BB6;
   }
 }
-
+[data-color='lightpurple'] {
+  .header {
+    background: #9A94B2;
+  }
+}
 
 // Burger menu interaction - inspired from http://codepen.io/pwsm50/pen/KHDEI
 .b-a {
@@ -139,6 +143,6 @@ nav {
 
 
 .header.is-launching {
-  background: #615c74;
+  background: #9A94B2;
   transition: 5s;
 }
