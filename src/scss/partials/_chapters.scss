@@ -195,7 +195,11 @@
     width: 100%;
     height: 100%;
     background: #C7F1FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 3;
+    overflow: hidden;
     .ch2__prompt2 {
       position: absolute;
       top: 20px;
@@ -212,6 +216,33 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
+    }
+    .assemblage__dropzone {
+      width: 150px;
+      height: 293px;
+      background: url('../../assets/img/rocketshadow--mobile.png') center no-repeat;
+    }
+    .assemblage__pieces {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      > div {
+        position: absolute;
+        &.piece1 { top: 210px; left: 20px; }
+        &.piece2 { top: 391px; left: 29px; }
+        &.piece3 { top: 302px; left: 26px; }
+        &.piece4 { top: 316px; right: -12px; }
+        &.piece5 { bottom: 77px; right: 50px; }
+        &.piece6 { bottom: 6px; right: 50px; }
+        &.piece7 { bottom: 24px; left: 133px; }
+        &.piece8 { bottom: 6px; left: 16px; }
+        &.piece9 { top: 101px; left: 48px; }
+        &.piece10 { top: 197px; right: 28px; }
+        &.piece11 { top: 112px; right: 28px; }
+        &.piece12 { bottom: 98px; left: 78px; }
+      }
     }
   }
 }

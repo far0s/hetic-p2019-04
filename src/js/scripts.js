@@ -68,7 +68,6 @@
     function ch2scenario(){
       $('.ch2 .btn-next').hide();
       $('.ch2__prompt1').hide();
-      $('.ch2__prompt2').hide();
       $('.ch2 .assemblage').hide();
 
       $('.ch2 .dialog-ok').click(function(){
@@ -78,7 +77,16 @@
       });
       $('.ch2__btn1').click(function(){
         $('.ch2 .assemblage').show('slow');
+        $('.ch2__screen1 .ch2__btn2').show();
+        $('.ch2__screen1 .ch2__btn2').css('z-index', '3');
       });
+      $('.ch2__screen1 .ch2__btn2').click(function(){
+        $('.ch2__screen1').removeClass('screen--is-visible');
+        $('.ch2__screen2').addClass('screen--is-visible');
+      });
+
+      // TODO Add Drag&Drop puzzle mechanics
+
     }
 
     // Chapter 5 scenario
