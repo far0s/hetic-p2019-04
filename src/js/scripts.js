@@ -96,8 +96,77 @@
           $('.ch2__screen2 .nav-href').show('slow');
         }, 5000);
       });
+    }
 
+    // Chapter 3 scenario
+    function ch3scenario(){
+      $('.ch3__btn1').hide();
+      $('.ch3__screen2 .nav-href').hide();
 
+      $('.ch3 .ch3__screen1 .dialog-ok').click(function(){
+        $('.ch3__btn1').show('slow');
+      });
+      $('.ch3__btn1').click(function(){
+        $('.ch3__screen1').removeClass('screen--is-visible');
+        $('.ch3__screen2').addClass('screen--is-visible');
+      });
+
+      // Tap interaction on Rosetta
+      var taps=3; // starting scale of the '.inner-circle'
+      $('.rosetta').click(function(){
+        if (taps < 9) {
+          taps++;
+          var scale = 'scale3d(.'+taps+', .'+taps+', 1)';
+          $('.rosetta .inner-circle').css('transform', scale);
+        } else {
+          taps++;
+          $('.rosetta .inner-circle').css('transform', 'scale3d(1,1,1)');
+          $('.ch3__screen2 .prompt > p').text('Bravo, tu as redémarré le réacteur !');
+          $('.ch3__screen2 .nav-href').show('slow');
+        }
+      });
+    }
+
+    // Chapter 4 scenario
+    function ch4scenario(){
+      $('.ch4__btn3').hide();
+      $('.ch4__screen3 .prompt').hide();
+      $('.ch4 .nav-href').hide();
+
+      $('.ch4__btn1').click(function(){
+        $('.ch4__screen1').removeClass('screen--is-visible');
+        $('.ch4__screen2').addClass('screen--is-visible');
+      });
+      $('.ch4__btn2').click(function(){
+        $('.ch4__screen2 .dialog').hide('slow');
+        $('.ch4__btn3').show('slow');
+      });
+      $('.ch4__btn3').click(function(){
+        $('.ch4__screen2').removeClass('screen--is-visible');
+        $('.ch4__screen3').addClass('screen--is-visible');
+        $('.ch4__screen3 .prompt').show('slow');
+      });
+
+      // Asteroid field svg paths
+      var rail = document.getElementById('rail'),
+          knob = document.getElementById('knob'),
+          H = rail.getBBox().height,
+          railLength = rail.getTotalLength();
+
+      function update(){
+        var P = rail.getPointAtLength(railLength - (this.y/H*railLength));
+        TweenLite.set(knob,{attr:{x:(P.x - 32),y:(P.y - 32)}});
+        // End condition
+        if ($('#knob').attr('x') === '-91.5' || $('#knob').attr('y') === '259') {
+          $('.ch4__screen3 .prompt > p').text('Bravo, tu es sorti indemne du champ d\'astéroïdes !');
+          $('.ch4 .nav-href').show('slow');
+        }
+      }
+
+      Draggable.create(document.createElement('div'),{
+        type:'y',throwProps:true,bounds:{minY:H,maxY:0},
+        trigger:knob,overshootTolerance:0,onDrag:update,onThrowUpdate:update
+      });
     }
 
     // Chapter 5 scenario
@@ -118,7 +187,8 @@
       initChapter(href, dataColorTarget);
       if (href === '#ch1') {ch1scenario();}
       else if (href === '#ch2') {ch2scenario();}
-
+      else if (href === '#ch3') {ch3scenario();}
+      else if (href === '#ch4') {ch4scenario();}
       else if (href === '#ch5') {ch5scenario();}
     });
 

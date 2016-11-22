@@ -256,7 +256,7 @@
       background: linear-gradient(#37314E 33.33%, #C7F2FF 66.66%);
     }
     .nav-href {
-      background: #615c74;
+      background: #9A94B2;
     }
   }
   .ch2__screen2.is-launching {
@@ -273,11 +273,221 @@
 
 
 // Chapter 3
-
+.ch3 {
+  &:before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    z-index: -1;
+    background: #37314E;
+    background-image: url('../../assets/img/bg--mobile.jpg');
+    animation: bgrotate 240s infinite;
+    @include media($tablet){
+      background-image: url('../../assets/img/bg.jpg');
+    }
+  }
+  .earth, .mars {
+    position: absolute;
+    &:after {
+      content: '';
+      position: absolute;
+      top: -10%;
+      left: -10%;
+      width: 120%;
+      height: 120%;
+      border-radius: 100%;
+      background: rgba(154, 148, 178, 0.3);
+    }
+  }
+  .earth {
+    width: 177px;
+    height: 177px;
+    left: -90px;
+    bottom: 110px;
+  }
+  .mars {
+    width: 100px;
+    height: 100px;
+    top: 94px;
+    right: 5px;
+  }
+  .ch3__screen1 {
+    display: flex;
+    flex-direction: column;
+    .rosetta {
+      position: absolute;
+      bottom: 200px;
+      right: 55px;
+    }
+    .dialog {
+      width: 300px;
+      height: 140px;
+      padding: 26px 22px;
+      margin-bottom: 70px;
+      z-index: 3;
+      .typed--ch3 {
+        width: 250px;
+        height: 60px;
+        overflow-y: scroll;
+        font-size: 12px;
+      }
+      .dialog-ok {
+        margin-top: -10px;
+        cursor: pointer;
+      }
+    }
+  }
+  .ch3__screen2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .prompt {
+      position: absolute;
+      top: 20px;
+      left: calc(50% - 143px);
+      width: 287px;
+      height: 57px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: #ffffff;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .rosetta {
+      position: relative;
+      img {
+        pointer-events: none;
+      }
+      .outer-circle, .inner-circle {
+        position: absolute;
+        top: -42px;
+        left: -42px;
+        width: 264px;
+        height: 264px;
+        border-radius: 100%;
+        z-index: -1;
+        box-sizing: border-box;
+        pointer-events: none;
+      }
+      .outer-circle {
+        border: 1px solid #9A94B2;
+        z-index: 1;
+      }
+      .inner-circle {
+        background: #5A566C;
+        transform: scale3d(.3, .3, 1);
+        transition: .4s ease-out;
+      }
+    }
+  }
+}
 
 
 // Chapter 4
-
+.ch4 {
+  &:before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    z-index: -1;
+    background: #37314E;
+    background-image: url('../../assets/img/bg--mobile.jpg');
+    animation: bgrotate 240s infinite;
+    @include media($tablet){
+      background-image: url('../../assets/img/bg.jpg');
+    }
+  }
+  .screen {
+    display: flex;
+    flex-direction: column;
+  }
+  .dialog {
+    width: 300px;
+    height: 140px;
+    padding: 26px 22px;
+    margin-bottom: 20px;
+    margin-top: auto;
+    z-index: 3;
+    .typed--ch4 {
+      width: 250px;
+      height: 60px;
+      overflow-y: scroll;
+      font-size: 12px;
+    }
+    .dialog-ok {
+      margin-top: -10px;
+      cursor: pointer;
+    }
+  }
+  .ch4__screen1 {
+    .asteroid {
+      position: absolute;
+      top: 254px;
+      right: 55px;
+    }
+  }
+  .ch4__screen2 {
+    position: fixed;
+    top: 0;
+    .asteroid {
+      position: absolute;
+      top: 118px;
+      left: 15px;
+    }
+    .rosetta {
+      position: absolute;
+      bottom: 150px;
+      right: 45px;
+    }
+  }
+  .prompt {
+    position: absolute;
+    top: 20px;
+    left: calc(50% - 143px);
+    width: 287px;
+    height: 57px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #ffffff;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .field {
+    .asteroid1 {
+      position: absolute;
+      top: 100px;
+      right: 40px;
+    }
+    .asteroid2 {
+      position: absolute;
+      top: 300px;
+      left: 30px;
+    }
+  }
+  #slider{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    overflow:visible;
+  }
+}
 
 
 // Chapter 5
