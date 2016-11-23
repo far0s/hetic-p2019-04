@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     cssnano = require('gulp-cssnano'),
     header = require('gulp-header'),
     jshint = require('gulp-jshint'),
+    image = require('gulp-image'),
     modernizr = require('gulp-modernizr'),
     rename = require('gulp-rename'),
     sass = require('gulp-sass'),
@@ -66,16 +67,33 @@ gulp.task('hbs', function(){
     .pipe(browserSync.reload({stream:true}));
 });
 
-// Media tasks
-gulp.task('media', function(){
+// Fonts task
+gulp.task('fonts', function(){
   gulp.src('src/fonts/*')
     .pipe(gulp.dest('dist/assets/fonts/'))
     .pipe(browserSync.reload({stream:true}));
+});
 
+// Images task
+gulp.task('images', function(){
   gulp.src('src/img/*')
+    .pipe(image({
+      pngquant: true,
+      optipng: false,
+      zopflipng: true,
+      jpegRecompress: false,
+      jpegoptim: true,
+      mozjpeg: true,
+      gifsicle: false,
+      svgo: false,
+      concurrent: 5
+    }))
     .pipe(gulp.dest('dist/assets/img/'))
     .pipe(browserSync.reload({stream:true}));
+});
 
+// Favicon task
+gulp.task('favicon', function(){
   gulp.src('src/favicon/*')
     .pipe(gulp.dest('dist/assets/favicon/'))
     .pipe(browserSync.reload({stream:true}));
@@ -102,11 +120,13 @@ gulp.task('bs-reload', function () {
 });
 
 // Default task watcher
-gulp.task('default', ['css', 'js', 'hbs', 'media', 'svgo', 'browser-sync'], function () {
-  gulp.watch(["src/fonts/*", "src/img/*", "src/favicon/*"], ['media']);
+gulp.task('default', ['css', 'js', 'hbs', 'fonts', 'images', 'favicon', 'svgo', 'browser-sync'], function () {
   gulp.watch("src/scss/*/*.scss", ['css']);
   gulp.watch("src/js/*.js", ['js']);
   gulp.watch("src/**/*.hbs", ['hbs'])
   gulp.watch("src/svg/*.svg", ['svgo']);
+  gulp.watch("src/fonts/*", ['fonts']);
+  gulp.watch("src/img/*", ['images']);
+  gulp.watch("src/favicon/*", ['favicon']);
   gulp.watch("dist/*.html", ['bs-reload']);
 });
