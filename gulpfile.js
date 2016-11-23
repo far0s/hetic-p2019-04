@@ -117,13 +117,13 @@ gulp.task('bs-reload', function () {
 });
 
 // Default task watcher
-gulp.task('default', ['css', 'js', 'hbs', 'fonts', 'images', 'favicon', 'svgo', 'browser-sync'], function () {
-  gulp.watch("src/scss/*/*.scss", ['css']);
-  gulp.watch("src/js/*.js", ['js']);
-  gulp.watch("src/**/*.hbs", ['hbs'])
+gulp.task('default', ['svgo', 'fonts', 'images', 'favicon', 'css', 'js', 'hbs', 'browser-sync'], function () {
   gulp.watch("src/svg/*.svg", ['svgo']);
   gulp.watch("src/fonts/*", ['fonts']);
   gulp.watch("src/img/*", ['images']);
+  gulp.watch("src/scss/*/*.scss", ['css']);
+  gulp.watch("src/js/*.js", ['js']);
+  gulp.watch("src/**/*.hbs", ['hbs'])
   gulp.watch("src/favicon/*", ['favicon']);
   gulp.watch("dist/*.html", ['bs-reload']);
 });
