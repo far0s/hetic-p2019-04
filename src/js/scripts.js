@@ -102,7 +102,8 @@
       $('.ch3__btn1').hide();
       $('.ch3__screen2 .nav-href').hide();
 
-      $('.ch3 .ch3__screen1 .dialog-ok').click(function(){
+      $('.ch3__screen1 .dialog-ok').click(function(){
+        $('.ch3 .ch3__screen1 .dialog').hide('slow');
         $('.ch3__btn1').show('slow');
       });
       $('.ch3__btn1').click(function(){
