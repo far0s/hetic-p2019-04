@@ -1,9 +1,18 @@
 .chapter {
   background: #ffffff;
   .chapter__title {
+    position: absolute;
+    top: 20px;
+    left: 20px;
     color: #9A94B2;
     font-size: 50px;
-    margin: 20px 30px;
+    margin: 0;
+    z-index: 1;
+    @include media($tablet, false){
+      top: 60px;
+      left: 60px;
+      font-size: 80px;
+    };
   }
   .dialog {
     margin: auto;
@@ -11,6 +20,17 @@
     background-size: contain;
     box-sizing: border-box;
     text-align: center;
+    > p {
+      overflow-y: scroll;
+      font-size: 12px;
+    }
+    .dialog-ok {
+      -webkit-appearance:none;
+      border: none;
+      background: none;
+      margin-top: -10px;
+      cursor: pointer;
+    }
   }
 }
 
@@ -41,17 +61,11 @@
     .typed--ch1 {
       width: 250px;
       height: 60px;
-      overflow-y: scroll;
-      font-size: 12px;
-    }
-    .dialog-ok {
-      margin-top: -10px;
-      cursor: pointer;
     }
   }
   .chapter__illu {
     position: relative;
-    margin-top: 40px;
+    margin-top: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -115,6 +129,23 @@
         transform: translate3d(0,0,0);
         transition: .2s cubic-bezier(0.55, 0.06, 0.68, 0.19) 1s;
       }
+    }
+  }
+  @include media($phone-landscape, false){
+    .ch1__screen1 {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      .chapter__illu, .dialog {
+        margin: 0;
+      }
+      .approbation {
+        top: 80px;
+        left: 30px;
+      }
+    }
+    .instruction {
+      z-index: 2;
     }
   }
 }
@@ -285,7 +316,7 @@
     background: #37314E;
     background-image: url('../../assets/img/bg--mobile.jpg');
     animation: bgrotate 240s infinite;
-    @include media($tablet){
+    @include media($tablet, false){
       background-image: url('../../assets/img/bg.jpg');
     }
   }
@@ -404,7 +435,7 @@
     background: #37314E;
     background-image: url('../../assets/img/bg--mobile.jpg');
     animation: bgrotate 240s infinite;
-    @include media($tablet){
+    @include media($tablet, false){
       background-image: url('../../assets/img/bg.jpg');
     }
   }

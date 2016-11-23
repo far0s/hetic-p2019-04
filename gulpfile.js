@@ -77,17 +77,17 @@ gulp.task('fonts', function(){
 // Images task
 gulp.task('images', function(){
   gulp.src('src/img/*')
-    .pipe(image({
-      pngquant: true,
-      optipng: false,
-      zopflipng: true,
-      jpegRecompress: false,
-      jpegoptim: true,
-      mozjpeg: true,
-      gifsicle: false,
-      svgo: false,
-      concurrent: 5
-    }))
+    // .pipe(image({
+    //   pngquant: true,
+    //   optipng: false,
+    //   zopflipng: true,
+    //   jpegRecompress: false,
+    //   jpegoptim: true,
+    //   mozjpeg: true,
+    //   gifsicle: false,
+    //   svgo: false,
+    //   concurrent: 4
+    // }))
     .pipe(gulp.dest('dist/assets/img/'))
     .pipe(browserSync.reload({stream:true}));
 });

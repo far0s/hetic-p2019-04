@@ -1,11 +1,8 @@
 // Typography
 
 body {
-  font-family: 'Avenir', Arial, sans-serif;
+  font-family: 'SFNS', 'Helvetica Neue', Arial, sans-serif;
   font-size: 15px;
-  @media screen and (min-width: 768px) {
-    
-  }
 }
 
 
@@ -15,10 +12,10 @@ body {
 	font-family: 'SFNS';
 	src: url('hinted-subset-.HelveticaNeueDeskInterface-Bold.eot');
 	src: local('SFNS Display Bold'), local('.HelveticaNeueDeskInterface-Bold'),
-		url('hinted-subset-.HelveticaNeueDeskInterface-Bold.eot?#iefix') format('embedded-opentype'),
-		url('hinted-subset-.HelveticaNeueDeskInterface-Bold.woff2') format('woff2'),
-		url('hinted-subset-.HelveticaNeueDeskInterface-Bold.woff') format('woff'),
-		url('hinted-subset-.HelveticaNeueDeskInterface-Bold.ttf') format('truetype');
+		url('../fonts/hinted-subset-.HelveticaNeueDeskInterface-Bold.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/hinted-subset-.HelveticaNeueDeskInterface-Bold.woff2') format('woff2'),
+		url('../fonts/hinted-subset-.HelveticaNeueDeskInterface-Bold.woff') format('woff'),
+		url('../fonts/hinted-subset-.HelveticaNeueDeskInterface-Bold.ttf') format('truetype');
 	font-weight: bold;
 	font-style: normal;
 }
@@ -27,10 +24,10 @@ body {
 	font-family: 'SFNS';
 	src: url('hinted-subset-.HelveticaNeueDeskInterface-Regular.eot');
 	src: local('SFNS Display'), local('.HelveticaNeueDeskInterface-Regular'),
-		url('hinted-subset-.HelveticaNeueDeskInterface-Regular.eot?#iefix') format('embedded-opentype'),
-		url('hinted-subset-.HelveticaNeueDeskInterface-Regular.woff2') format('woff2'),
-		url('hinted-subset-.HelveticaNeueDeskInterface-Regular.woff') format('woff'),
-		url('hinted-subset-.HelveticaNeueDeskInterface-Regular.ttf') format('truetype');
+		url('../fonts/hinted-subset-.HelveticaNeueDeskInterface-Regular.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/hinted-subset-.HelveticaNeueDeskInterface-Regular.woff2') format('woff2'),
+		url('../fonts/hinted-subset-.HelveticaNeueDeskInterface-Regular.woff') format('woff'),
+		url('../fonts/hinted-subset-.HelveticaNeueDeskInterface-Regular.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }

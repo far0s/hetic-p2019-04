@@ -3,18 +3,38 @@ $desktop : '1440px';
 $laptop : '1024px';
 $tablet : '768px';
 $mobileonly : '767px';
+$phone-landscape: 'min-width: 320px';
 
-@mixin media($point) {
-  @if $point == $desktop {
-    @media (min-width: #{$desktop}) { @content ; }
+@mixin media($point, $landscape) {
+  @if $landscape == false {
+    @if $point == $desktop {
+      @media (min-width: #{$desktop}) { @content ; }
+    }
+    @else if $point == $laptop {
+      @media (min-width: #{$laptop}) { @content ; }
+    }
+    @else if $point == $tablet {
+      @media (min-width: #{$tablet}) { @content ; }
+    }
+    @else if $point == $mobileonly {
+      @media (max-width:#{$mobileonly}) { @content ; }
+    }
+    @else if $point == $phone-landscape {
+      @media (#{$phone-landscape}) and (orientation: landscape) { @content ; }
+    }
+  } else {
+    @if $point == $desktop {
+      @media (min-width: #{$desktop}) and (orientation: landscape) { @content ; }
+    }
+    @else if $point == $laptop {
+      @media (min-width: #{$laptop}) and (orientation: landscape) { @content ; }
+    }
+    @else if $point == $tablet {
+      @media (min-width: #{$tablet}) and (orientation: landscape) { @content ; }
+    }
+    @else if $point == $mobileonly {
+      @media (max-width:#{$mobileonly}) and (orientation: landscape) { @content ; }
+    }
   }
-  @else if $point == $laptop {
-    @media (min-width: #{$laptop}) { @content ; }
-  }
-  @else if $point == $tablet {
-    @media (min-width: #{$tablet}) { @content ; }
-  }
-  @else if $point == $mobileonly {
-    @media (max-width:#{$mobileonly})  { @content ; }
-  }
+
 }
