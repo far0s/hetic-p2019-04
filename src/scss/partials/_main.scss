@@ -10,7 +10,7 @@ main > section {
   left: 0;
   width: 100%;
   height: calc(100% - 50px);
-  transition: .3s ease-in-out .5s;
+  transition: .3s ease-in-out .2s;
   overflow: hidden;
   background: #ffffff;
   &:target {
@@ -21,10 +21,10 @@ main > section {
     opacity: 0;
     z-index: -1;
     pointer-events: none;
-    &.home {
-      opacity: 1;
-      z-index: 1;
-      pointer-events: all;
-    }
+    // &.home {
+    //   opacity: 1;
+    //   z-index: 1;
+    //   pointer-events: all;
+    // }
   }
 }

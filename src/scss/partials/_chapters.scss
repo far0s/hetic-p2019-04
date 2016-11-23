@@ -148,6 +148,17 @@
       z-index: 2;
     }
   }
+  @include media($tablet, false){
+    .ch1__screen1 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .dialog {
+        margin: 0;
+      }
+    }
+  }
 }
 
 
