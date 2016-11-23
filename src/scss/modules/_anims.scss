@@ -1,3 +1,10 @@
+// Rotating sky background
+@keyframes bgrotate {
+  0%   { transform: rotate(0); }
+  100% { transform: rotate(360deg); }
+}
+
+// Bottle shaking animation
 @keyframes shake-slow {
   0% {
     transform: translate(0px, 0px) rotate(0deg);
@@ -151,7 +158,7 @@
   }
 }
 
-
+// "Launching into the stars" animation
 @keyframes launch-sun {
   0%   {opacity: 1;}
   100% {opacity: 0;}

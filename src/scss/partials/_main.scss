@@ -21,5 +21,10 @@ main > section {
     opacity: 0;
     z-index: -1;
     pointer-events: none;
+    &.home {
+      opacity: 1;
+      z-index: 1;
+      pointer-events: all;
+    }
   }
 }

@@ -12,16 +12,12 @@
     z-index: -1;
     background: #37314E;
     background-image: url('../../assets/img/bg--mobile.jpg');
+    background-position: center;
     animation: bgrotate 240s infinite;
     @include media($tablet){
       background-image: url('../../assets/img/bg.jpg');
     }
   }
-}
-
-@keyframes bgrotate {
-  0%   { transform: rotate(0); }
-  100% { transform: rotate(360deg); }
 }
 
 .home__splash {
