@@ -1,6 +1,5 @@
 // TODO:
 // - Optimize Typed.js
-// - Add Interact.js - http://interactjs.io/
 // - Add 'unlockable chapters' functionnality
 // - Add 'reset' function
 
@@ -31,10 +30,10 @@
       $('.ch1__screen2 .bottle img:nth-of-type(2)').hide();
 
       // TODO: Typed dialog
-      $('.typed--ch1').typed({
-        strings: $('.typed--ch1'),
-        typeSpeed: 0
-      });
+      // $('.typed--ch1').typed({
+      //   strings: $('.typed--ch1'),
+      //   typeSpeed: 0
+      // });
 
       // 'OK' button listener, triggers next bubble
       $('.ch1 .dialog-ok').click(function(){
@@ -156,7 +155,7 @@
       function update(){
         var P = rail.getPointAtLength(railLength - (this.y/H*railLength));
         TweenLite.set(knob,{attr:{x:(P.x - 32),y:(P.y - 32)}});
-        // End condition
+        // End condition for the minigame
         if ($('#knob').attr('x') === '-91.5' || $('#knob').attr('y') === '259') {
           $('.ch4__screen3 .prompt > p').text('Bravo, tu es sorti indemne du champ d\'astéroïdes !');
           $('.ch4 .nav-href').show('slow');
