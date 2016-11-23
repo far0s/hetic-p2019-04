@@ -12,6 +12,7 @@
     z-index: -1;
     background: #37314E;
     background-image: url('../../assets/img/bg--mobile.jpg');
+    background-repeat: no-repeat;
     background-position: center;
     animation: bgrotate 240s infinite;
     @include media($tablet, false){

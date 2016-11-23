@@ -70,7 +70,7 @@
       $('.ch2 .assemblage').hide();
 
       $('.ch2 .dialog-ok').click(function(){
-        $('.ch2 .dialog').hide('slow');
+        // $('.ch2 .dialog').hide('slow');
         $('.ch2__prompt1').show('slow');
         $('.ch2__btn1').show('slow');
       });
@@ -87,7 +87,6 @@
         $('.ch2__screen2').addClass('screen--is-visible');
         $('.ch2__screen2 .dialog').show('slow');
         setTimeout(function(){
-          $('.ch2__screen2 .dialog').hide('slow');
           $('.ch2__screen2').addClass('is-launching');
           $('.header').addClass('is-launching');
         }, 3000);
@@ -102,7 +101,8 @@
       $('.ch3__btn1').hide();
       $('.ch3__screen2 .nav-href').hide();
 
-      $('.ch3 .ch3__screen1 .dialog-ok').click(function(){
+      $('.ch3__screen1 .dialog-ok').click(function(){
+        $('.ch3 .ch3__screen1 .dialog').hide('slow');
         $('.ch3__btn1').show('slow');
       });
       $('.ch3__btn1').click(function(){

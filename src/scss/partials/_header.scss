@@ -43,6 +43,9 @@
       font-weight: 300;
     }
   }
+  @include media($tablet, false) {
+    height: 70px;
+  }
 }
 
 [data-color='lightblue'] {
@@ -100,6 +103,10 @@ nav {
   &:after {
     @extend .b-a;
     top: 8px;
+  }
+  @include media($tablet, false){
+    left: 22px;
+    top: 34px;
   }
 }
 .b-a-expanded {

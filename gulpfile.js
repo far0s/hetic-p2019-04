@@ -54,9 +54,6 @@ gulp.task('hbs', function(){
   };
   var options = {
     ignorePartials: true, //ignores the unknown footer2 partial in the handlebars template, defaults to false
-    partials : {
-      footer : '<footer>the end</footer>'
-    },
     batch : ['src/partials'],
   }
 

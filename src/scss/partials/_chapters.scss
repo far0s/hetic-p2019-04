@@ -158,6 +158,9 @@
         margin: 0;
       }
     }
+    .instruction {
+      margin-top: 50px;
+    }
   }
 }
 
@@ -168,6 +171,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  .ch2__screen1 {
+    display: flex;
+  }
   .chapter__title {
     color: #489BB6;
   }
@@ -197,6 +203,7 @@
     width: 300px;
     height: 140px;
     padding: 26px 22px;
+    margin-top: 30%;
     .typed--ch1 {
       width: 250px;
       height: 60px;
@@ -311,6 +318,78 @@
     .earth, .man2 {animation: launch-earth 5s forwards;}
     .rocket {animation: launch-rocket 3s ease-out forwards;}
   }
+  @include media($phone-landscape, false){
+    .ch2__screen1 {
+      .dialog {
+        z-index: 1;
+        margin-top: 10%;
+        margin-left: 20px;
+      }
+      .earth {
+        left: initial;
+        right: -80px;
+        bottom: -380px;
+      }
+      .man1 {
+        right: 70px;
+      }
+      .rocket {
+        right: -125px;
+        bottom: 30px;
+      }
+    }
+    .ch2__screen2 {
+      .dialog {
+        z-index: 1;
+        margin-top: 10%;
+        margin-left: 20px;
+      }
+      .earth {
+        left: initial;
+        right: -80px;
+        bottom: -380px;
+      }
+      .man2 {
+        right: 70px;
+      }
+      .rocket {
+        right: -125px;
+        bottom: 30px;
+      }
+    }
+  }
+  @include media($tablet, false){
+    .screen {
+      .dialog {
+        margin-top: 20%;
+        margin-left: 50px;
+      }
+      .sun {
+        width: 100px;
+        height: 100px;
+        right: 40px;
+        top: 40px;
+      }
+      .earth {
+        right: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+      }
+      .rocket {
+        right: 0;
+        left: 0;
+      }
+      .man1, .man2 {
+        left: calc(50% + 100px);
+        right: 0;
+      }
+      .ch2__prompt2 {
+        top: 70px;
+        height: 50px;
+      }
+    }
+  }
 }
 
 
@@ -326,6 +405,7 @@
     z-index: -1;
     background: #37314E;
     background-image: url('../../assets/img/bg--mobile.jpg');
+    background-repeat: no-repeat;
     animation: bgrotate 240s infinite;
     @include media($tablet, false){
       background-image: url('../../assets/img/bg.jpg');
@@ -407,6 +487,10 @@
       position: relative;
       img {
         pointer-events: none;
+        &:focus {
+          outline: none;
+          background: none;
+        }
       }
       .outer-circle, .inner-circle {
         position: absolute;
@@ -430,6 +514,54 @@
       }
     }
   }
+  @include media($phone-landscape, false){
+    .ch3__screen1 {
+      .dialog {
+        margin-bottom: 20px;
+        margin-left: 20%;
+      }
+      .earth {
+        bottom: -20px;
+      }
+      .mars {
+        top: 30px;
+        right: -15px;
+      }
+      .rosetta {
+        bottom: 20px;
+        right: 75px;
+      }
+    }
+    .ch3__screen2 {
+      .rosetta {
+        transform: scale3d(0.8,0.8,1);
+        margin-top: 80px;
+      }
+    }
+  }
+  @include media($tablet, false){
+    .ch3__screen1 {
+      .earth {
+        left: -60px;
+        bottom: 200px;
+      }
+      .rosetta {
+        bottom: 360px;
+        right: 200px;
+      }
+      .mars {
+        top: 100px;
+      }
+      .dialog {
+        margin-left: auto;
+        margin-bottom: 70px;
+      }
+    }
+    .ch3__screen2 .prompt {
+      top: 70px;
+      height: 70px;
+    }
+  }
 }
 
 
@@ -445,6 +577,7 @@
     z-index: -1;
     background: #37314E;
     background-image: url('../../assets/img/bg--mobile.jpg');
+    // background-repeat: no-repeat;
     animation: bgrotate 240s infinite;
     @include media($tablet, false){
       background-image: url('../../assets/img/bg.jpg');
@@ -475,8 +608,14 @@
   .ch4__screen1 {
     .asteroid {
       position: absolute;
-      top: 254px;
+      top: 284px;
       right: 55px;
+    }
+    .rosetta {
+      width: 180px;
+      position: absolute;
+      top: 120px;
+      left: 30px;
     }
   }
   .ch4__screen2 {
@@ -484,13 +623,16 @@
     top: 0;
     .asteroid {
       position: absolute;
-      top: 118px;
+      top: 138px;
       left: 15px;
     }
     .rosetta {
       position: absolute;
       bottom: 150px;
       right: 45px;
+    }
+    .chapter__title {
+      top: 70px;
     }
   }
   .prompt {
@@ -518,9 +660,10 @@
     }
     .asteroid2 {
       position: absolute;
-      top: 300px;
+      top: 330px;
       left: 30px;
     }
+
   }
   #slider{
     position:absolute;
@@ -528,6 +671,62 @@
     top:50%;
     transform: translate(-50%,-50%);
     overflow:visible;
+  }
+  @include media($phone-landscape, false){
+    .ch4__screen1 {
+      .asteroid {
+        top: 35px;
+      }
+    }
+    .ch4__screen2 {
+      .rosetta {
+        bottom: 110px;
+      }
+    }
+    .ch4__screen3 {
+      .asteroid2 {
+        top: 170px;
+        left: 140px;
+      }
+      .prompt {
+        z-index: 1;
+      }
+    }
+  }
+  @include media($tablet, false){
+    .ch4__screen1 {
+      .rosetta {
+        top: 270px;
+        left: 280px;
+      }
+      .asteroid {
+        top: 175px;
+        right: 200px;
+      }
+    }
+    .ch4__screen2 {
+      .asteroid {
+        top: 350px;
+        left: 240px;
+      }
+      .rosetta {
+        top: 205px;
+        right: 200px;
+      }
+    }
+    .field {
+      .asteroid1 {
+        top: 160px;
+        right: 330px;
+      }
+      .asteroid2 {
+        top: 350px;
+        left: 340px;
+      }
+    }
+    .ch4__screen3 .prompt {
+      height: 70px;
+    }
   }
 }
 
