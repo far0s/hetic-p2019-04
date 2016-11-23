@@ -12,16 +12,12 @@
     z-index: -1;
     background: #37314E;
     background-image: url('../../assets/img/bg--mobile.jpg');
+    background-position: center;
     animation: bgrotate 240s infinite;
-    @include media($tablet){
+    @include media($tablet, false){
       background-image: url('../../assets/img/bg.jpg');
     }
   }
-}
-
-@keyframes bgrotate {
-  0%   { transform: rotate(0); }
-  100% { transform: rotate(360deg); }
 }
 
 .home__splash {
@@ -36,7 +32,7 @@
     text-transform: uppercase;
     font-weight: 300;
     margin-bottom: 0;
-    @include media($tablet) {
+    @include media($tablet, false) {
       font-size: 30px;
       margin-bottom: 20px;
     }
@@ -46,8 +42,11 @@
     font-weight: 300;
     margin-top: 0;
     margin-bottom: 60px;
-    @include media($tablet) {
+    @include media($tablet, false) {
       font-size: 20px;
+    }
+    @include media($phone-landscape, false){
+      margin-bottom: 20px;
     }
   }
   .mission--img {
@@ -60,9 +59,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    @include media($tablet) {
-      width: 115px;
-      height: 115px;
+    img {
+      width: 63px;
+      height: 74px;
+    }
+    @include media($tablet, false) {
+      width: 230px;
+      height: 230px;
+      img {
+        width: 123px;
+        height: 148px;
+      }
     }
   }
   .mission p {
@@ -75,12 +82,13 @@
     align-items: center;
     font-size: 11px;
     font-weight: 300;
-    margin-top: -30px;
-    @include media($tablet) {
-      width: 365px;
-      height: 115px;
+    margin-top: -50px;
+    @include media($tablet, false) {
+      width: 450px;
+      height: 150px;
       text-align: center;
-      font-size: 15px;
+      font-size: 18px;
+      margin-top: -70px;
     }
   }
 }

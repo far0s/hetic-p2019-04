@@ -21,6 +21,19 @@
       cursor: pointer;
       &:last-of-type { text-align: end;}
     }
+    // For disabled nav link - future 'unlocking' functionnality
+    // .nav-href {
+    //   pointer-events: all;
+    //   text-decoration: none;
+    //   opacity: 1;
+    //   transition-delay: opacity .5s;
+    //   &.disabled {
+    //     pointer-events: none;
+    //     cursor: not-allowed;
+    //     text-decoration: line-through;
+    //     opacity: 0.5;
+    //   }
+    // }
     h1 {
       text-align: center;
       flex: 1 1 70%;
@@ -53,10 +66,6 @@
   width: 22px;
   border-radius: 3px;
   background-color: rgba(255, 255, 255, 0.95);
-  @include media($tablet) {
-    height: 6px;
-    width: 40px;
-  }
 }
 nav {
   height: 100%;
@@ -87,16 +96,10 @@ nav {
   &:before {
     @extend .b-a;
     top: -8px;
-    @include media($tablet) {
-      top: -12px;
-    }
   }
   &:after {
     @extend .b-a;
     top: 8px;
-    @include media($tablet) {
-      top: 12px;
-    }
   }
 }
 .b-a-expanded {
