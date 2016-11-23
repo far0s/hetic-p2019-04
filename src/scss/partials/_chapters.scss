@@ -577,7 +577,7 @@
     z-index: -1;
     background: #37314E;
     background-image: url('../../assets/img/bg--mobile.jpg');
-    background-repeat: no-repeat;
+    // background-repeat: no-repeat;
     animation: bgrotate 240s infinite;
     @include media($tablet, false){
       background-image: url('../../assets/img/bg.jpg');
@@ -608,8 +608,14 @@
   .ch4__screen1 {
     .asteroid {
       position: absolute;
-      top: 254px;
+      top: 284px;
       right: 55px;
+    }
+    .rosetta {
+      width: 180px;
+      position: absolute;
+      top: 120px;
+      left: 30px;
     }
   }
   .ch4__screen2 {
@@ -617,13 +623,16 @@
     top: 0;
     .asteroid {
       position: absolute;
-      top: 118px;
+      top: 138px;
       left: 15px;
     }
     .rosetta {
       position: absolute;
       bottom: 150px;
       right: 45px;
+    }
+    .chapter__title {
+      top: 70px;
     }
   }
   .prompt {
@@ -651,9 +660,10 @@
     }
     .asteroid2 {
       position: absolute;
-      top: 300px;
+      top: 330px;
       left: 30px;
     }
+
   }
   #slider{
     position:absolute;
@@ -661,6 +671,62 @@
     top:50%;
     transform: translate(-50%,-50%);
     overflow:visible;
+  }
+  @include media($phone-landscape, false){
+    .ch4__screen1 {
+      .asteroid {
+        top: 35px;
+      }
+    }
+    .ch4__screen2 {
+      .rosetta {
+        bottom: 110px;
+      }
+    }
+    .ch4__screen3 {
+      .asteroid2 {
+        top: 170px;
+        left: 140px;
+      }
+      .prompt {
+        z-index: 1;
+      }
+    }
+  }
+  @include media($tablet, false){
+    .ch4__screen1 {
+      .rosetta {
+        top: 270px;
+        left: 280px;
+      }
+      .asteroid {
+        top: 175px;
+        right: 200px;
+      }
+    }
+    .ch4__screen2 {
+      .asteroid {
+        top: 350px;
+        left: 240px;
+      }
+      .rosetta {
+        top: 205px;
+        right: 200px;
+      }
+    }
+    .field {
+      .asteroid1 {
+        top: 160px;
+        right: 330px;
+      }
+      .asteroid2 {
+        top: 350px;
+        left: 340px;
+      }
+    }
+    .ch4__screen3 .prompt {
+      height: 70px;
+    }
   }
 }
 
